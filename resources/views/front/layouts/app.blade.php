@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Electronics - Minimalist eCommerce HTML5 Template</title>
+        <title>{{ $content->name }}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
@@ -60,61 +60,73 @@
         <script src="{{ asset('/') }}assets/front/js/owl.carousel.min.js"></script>
         <script src="{{ asset('/') }}assets/front/js/plugins.js"></script>
         <script type="text/javascript">
-            // grab an element
             var myElement = document.querySelector(".intelligent-header");
-            // construct an instance of Headroom, passing the element
             var headroom  = new Headroom(myElement);
-            // initialise
             headroom.init();
+            $('.owl-details').owlCarousel({
+    margin:10,
+    responsive:{
+        0:{
+            items:2
+        },
+        600:{
+            items:2
+        },
+        1000:{
+            items:3
+        }
+    }
+})
         </script>
         <script src="{{ asset('/') }}assets/front/js/cart.js"></script>
         <script src="{{ asset('/') }}assets/front/js/main.js"></script>
         @stack('script')
         <script>
             function renderCart(items) {
+            const cart = document.querySelector(".cart");
+            const count = document.querySelector(".itemstotal");
+            const countt = document.querySelector(".itemstotalcart");
+            if (localStorage.getItem('__cart')) {
+            count.innerHTML = JSON.parse(localStorage.getItem('__cart')).length;
 
+            } else {
+            count.innerHTML = 0
 
+            }
 
+            cart.innerHTML = items.map((item) => `<li class="single-product-cart">
+                <div class="cart-img">
+                    <a href="#"><img src="{{ asset('/') }}assets/images/product/${item.image}" alt=""></a>
+                </div>
+                <div class="cart-title">
+                    <h3><a href="#"> ${item.name}</a></h3>
+                    <span>${item.quantity} x BDT ${item.price}</span>
+                </div>
+                <div class="cart-delete">
+                    <a class="dltProduct" onClick="cartLS.remove(${item.id})"><i class="ion-ios-trash-outline"></i></a>
+                </div>
+            </li>`)
 
-                const cart = document.querySelector(".cart");
-const count = document.querySelector(".itemstotal");
-const countt = document.querySelector(".itemstotalcart");
- if (localStorage.getItem('__cart')) {
-  count.innerHTML = JSON.parse(localStorage.getItem('__cart')).length;
+            document.querySelector(".totali").innerHTML = cartLS.total()
 
- } else {
-     count.innerHTML = 0
+            }
+            renderCart(cartLS.list())
+            cartLS.onChange(renderCart)
 
-}
+            $(document).ready(function(){
+                $(".btn-cart").click(function(){
+                    window.location = "{{ route('cart') }}";
+                });
+                $(".dltProduct").click(function(){
+                    location.reload();
+                });
+            });
 
-cart.innerHTML = items.map((item) => `<li class="single-product-cart">
-                        <div class="cart-img">
-                            <a href="#"><img src="{{ asset('/') }}assets/images/product/${item.image}" alt=""></a>
-                        </div>
-                        <div class="cart-title">
-                            <h3><a href="#"> ${item.name}</a></h3>
-                            <span>${item.quantity} x BDT ${item.price}</span>
-                        </div>
-                        <div class="cart-delete">
-                            <a onClick="cartLS.remove(${item.id})"><i class="ion-ios-trash-outline"></i></a>
-                        </div>
-                    </li>`)
-// $count.innerHTML = JSON.parse(localStorage.getItem('__cart')).length;
-
-document.getElementById("subtotal_checkout").value = cartLS.total()
-document.querySelector(".totali").innerHTML = cartLS.total()
-// console.log(cartLS.total());
-//
-}
-renderCart(cartLS.list())
-cartLS.onChange(renderCart)
-
-
+            // $count.innerHTML = JSON.parse(localStorage.getItem('__cart')).length;
 
         </script>
 
     </body>
 
-    <!-- Mirrored from htmldemo.net/neha/neha/index-electronics.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Sep 2022 17:47:07 GMT -->
 
 </html>

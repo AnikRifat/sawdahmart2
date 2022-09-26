@@ -15,8 +15,7 @@
                 </ul>
                 <li class="single-product-cart">
                     <div class="cart-checkout-btn">
-                        <a class="btn-hover cart-btn-style" href="{{ route('cart') }}">view cart</a>
-                        <a class="no-mrg btn-hover cart-btn-style" href="#">checkout</a>
+                        <a class="btn-hover cart-btn-style w-100" href="{{ route('cart') }}">view cart</a>
                     </div>
                 </li>
             </div>

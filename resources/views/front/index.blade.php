@@ -3,23 +3,14 @@
 @foreach ($products as $product)
 @include('front.inc.details_modal')
 @endforeach
-
-
-<div class="slider-area">
-    <div class="single-slider single-slider-hm2 bg-img gray-bg-2">
-        <div class="containers">
-            <div class="slider-content slider-content-style-2 slider-animated-1 ptb-320"
-              style="background-image: url({{ asset('/') }}assets/images/{{ $content->slider }})">
-                <h2 class="animated">{{ $content->name }} <br>
-                    <span>{{ $content->slider_text }}</span>
-                </h2>
-                {{-- <a class="slider-btn-style-2 animated" href="shop-grid-view-sidebar.html">shop now</a> --}}
-            </div>
+<div class="shop-limited-area bg-img pt-90 pb-100"
+  style="background-image: url({{ asset('/') }}assets/images/{{ $content->slider }})" data-overlay="3">
+    <div class="container">
+        <div class="shop-limited-content">
+            <h2>{{ $content->name }}</h2>
+            <h5>{{ $content->slider_text }}</h5>
         </div>
-        {{-- <div class="slider-position-images">
-                <img src="{{ asset('/') }}assets/images/{{ $content->slider }}" alt="slider images">
-    </div> --}}
-</div>
+    </div>
 </div>
 
 <div class="category-area pt-40 pb-50">
@@ -97,8 +88,7 @@
 
 
 @if($reviews)
-<div class="testimonial-area bg-img pt-120 pb-115"
-  style="background-image: url({{ asset('/') }}assets/front/img/bg/1.jpg)" data-overlay="56">
+<div class="testimonial-area bg-img pt-120 pb-115" style="background: #212529;" data-overlay="56">
     <div class="container">
         <div class="testimonial-active text-center z-index owl-carousel">
             @foreach ($reviews as $review)

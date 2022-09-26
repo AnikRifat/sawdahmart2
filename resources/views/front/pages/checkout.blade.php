@@ -21,8 +21,7 @@
                     <h3>Your order</h3>
                     <form action="{{ route('check') }}" method="POST">
                         @csrf
-                        <input type="text" class="subtotal_checkout" id="subtotal_checkout" name="subtotal" value=""
-                          hidden>
+                        <input type="text" class="subtotal_checkout" id="subtotal_checkout" name="subtotal" hidden>
                         <div class="your-order-table table-responsive">
                             <table>
                                 <thead>
@@ -36,13 +35,9 @@
 
                                 </tbody>
                                 <tfoot>
-                                    <tr class="cart-subtotal">
-                                        <th>Cart Subtotal</th>
-                                        <td><span class="amount">£215.00</span></td>
-                                    </tr>
                                     <tr class="order-total">
                                         <th>Order Total</th>
-                                        <td><strong><span class="amount">£215.00</span></strong>
+                                        <td><strong>BDT <span class="subtotals"></span></strong>
                                         </td>
                                     </tr>
                                 </tfoot>
@@ -90,5 +85,17 @@
 
     // }
 </script>
+@push('script')
+<script>
+    function subtotal(items){
+document.getElementById("subtotal_checkout").value = cartLS.total()
+document.querySelector(".subtotal").innerHTML = cartLS.total()
+}
+subtotal(cartLS.list())
+cartLS.onChange(subtotal)
+
+</script>
+
+@endpush
 <!-- checkout-area end -->
 @endsection

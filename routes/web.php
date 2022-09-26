@@ -47,6 +47,8 @@ Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function () {
 
 
     Route::get('order', [App\Http\Controllers\OrderController::class, 'index'])->name('order.index');
+    Route::get('order/accept', [App\Http\Controllers\OrderController::class, 'acceptview'])->name('accept.view');
+    Route::get('order/cancel', [App\Http\Controllers\OrderController::class, 'cancelview'])->name('cancel.view');
     Route::get('editorder/{order}', [App\Http\Controllers\OrderController::class, 'edit'])->name('order.edit');
     Route::get('acceptorder/{order}', [App\Http\Controllers\OrderController::class, 'accept'])->name('order.accept');
     Route::get('cancelorder/{order}', [App\Http\Controllers\OrderController::class, 'cancel'])->name('order.cancel');

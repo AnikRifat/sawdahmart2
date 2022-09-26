@@ -30,7 +30,16 @@ class OrderController extends Controller
         // }
         return view('admin.pages.order.index', compact('orders'));
     }
-
+    public function acceptview()
+    {
+        $orders = Order::where('status', 1)->get();
+        return view('admin.pages.order.accepted.index', compact('orders'));
+    }
+    public function cancelview()
+    {
+        $orders = Order::where('status', 2)->get();
+        return view('admin.pages.order.canceled.index', compact('orders'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -81,16 +90,16 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, Order $order)
-    {
-        dd($order);
-        $data = [
-            'status' => 1
-        ];
-        $order->update($data);
+    // public function update(Request $request, Order $order)
+    // {
+    //     dd($order);
+    //     $data = [
+    //         'status' => 1
+    //     ];
+    //     $order->update($data);
 
-        return redirect()->route('order.index')->with('success', 'order accepted Scueesfully.');
-    }
+    //     return redirect()->route('order.index')->with('success', 'order accepted Scueesfully.');
+    // }
     /**
      * Show the form for editing the specified resource.
      *

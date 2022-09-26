@@ -26,8 +26,14 @@
                             <a href="{{ route('order.index') }}">
                                 <span data-key="t-chat">Requested Order</span>
                             </a>
+                            <a href="{{ route('accept.view') }}">
+                                <span data-key="t-chat">Accepted Order</span>
+                            </a>
+                            <a href="{{ route('cancel.view') }}">
+                                <span data-key="t-chat">Canceled Order</span>
+                            </a>
                         </li>
-                        
+
                         {{-- <li>
                             <a href="{{ route('order.complete') }}">
                         <span data-key="t-chat">Completed Order</span>

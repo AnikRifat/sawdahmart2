@@ -131,14 +131,6 @@ $products = $item->product_id($item->track_id);
                                             </body>
 
                                         </html>
-                                        <div class="invoice-btn-section clearfix d-print-none">
-                                            <a href="javascript:window.print()" class="btn btn-lg btn-print">
-                                                <i class="fa fa-print"></i> Print Invoice
-                                            </a>
-                                            <a id="invoice_download_btn" class="btn btn-lg btn-download">
-                                                <i class="fa fa-download"></i> Download Invoice
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -152,11 +144,14 @@ $products = $item->product_id($item->track_id);
                 <a type="button" href="{{ route('order.edit',$item->id) }}"
                   class="btn btn-primary waves-effect waves-light">Print</a>
                 {{-- @csrf --}}
+                @if($item->status == 0)
                 <a href="{{ route('order.accept',$item->id) }}"
                   class="btn btn-success waves-effect waves-light">accept</a>
 
                 <a href="{{ route('order.cancel',$item->id) }}"
                   class="btn btn-danger waves-effect waves-light">cancel</a>
+                @endif
+
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
