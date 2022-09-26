@@ -26,6 +26,7 @@
                             <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                 <thead>
                                     <tr>
+                                        <th>Product Id</th>
                                         <th>Name</th>
                                         <th>details</th>
                                         <th>price</th>
@@ -40,6 +41,7 @@
 
                                     @foreach ($products as $item)
                                     <tr>
+                                        <td>{{ $item->product_id }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{!! $item->details !!}</td>
                                         <td>{{ $item->price }}</td>

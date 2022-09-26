@@ -3939,7 +3939,7 @@ input.cart-plus-minus-box {
 
 .product-color-style2>ul li.orange:before {
     color: #fff;
-    content: "ï½";
+    content: "Ã¯ÂÂ½";
     font-family: "Ionicons";
     font-size: 16px;
     left: 0;
@@ -4052,7 +4052,7 @@ input.cart-plus-minus-box {
 
 .bundle-price ul li:before {
     color: #727272;
-    content: "ï´";
+    content: "Ã¯ÂÂ´";
     font-family: "Ionicons";
     font-size: 14px;
     left: 0;
@@ -4602,7 +4602,7 @@ thead {
 
 .coupon-accordion h3:before {
     color: #333;
-    content: "ï";
+    content: "Ã¯ÂÂ";
     font-family: "Ionicons";
     display: inline-block;
     left: 1.5em;
@@ -4743,7 +4743,7 @@ p.checkout-coupon input[type="submit"] {
 }
 
 .country-select:before {
-    content: "ï";
+    content: "Ã¯ÂÂ";
     font-family: "Ionicons";
     display: inline-block;
     font-size: 20px;
@@ -5591,14 +5591,17 @@ td.product-thumbnail img {
 }
 
 .category-area .card {
-    background: #6c757d;
+    background: #ffffff;
     margin: .5rem 0rem;
-    /* color: #fff!important; */
+    border: 4px solid #f2ae3b;
+    border-radius: 5px;
+    /* color: #180f0f!important; */
 }
 
 .category-area .card h4 {
     /*     background: #6c757d; */
-    color: #fff !important;
+    color: #212529 !important;
+    font-weight: 700;
 }
 
 .logo img {
@@ -5633,7 +5636,7 @@ button.close.position-absolute {}
 }
 
 .cart-null::after {
-    content: "Add to cart";
+    content: "Buy Now";
 }
 
 .carts-added::after {
@@ -5641,7 +5644,7 @@ button.close.position-absolute {}
 }
 
 .carts-null::after {
-    content: "Add to cart";
+    content: "Buy Now";
 }
 
 .cart-added {

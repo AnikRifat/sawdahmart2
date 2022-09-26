@@ -31,6 +31,7 @@ class Order extends Model
 
         return $items;
     }
+
     // public function product($id)
     // {
     //     $item = Product::where('id', $id)->get();

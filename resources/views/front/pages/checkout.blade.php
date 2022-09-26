@@ -69,6 +69,8 @@
 <input type="text" name="item_name[]" value="${item.name}" hidden>
 <input type="text" name="item_price[]" value="${item.price}" hidden>
 <input type="text" name="item_quantity[]" value="${item.quantity}" hidden>
+<input type="text" name="item_color[]" value="${item.color}" hidden>
+<input type="text" name="item_size[]" value="${item.size}" hidden>
 
                                     <td class="product-total">
                                         <span class="amount">BDT ${item.price * item.quantity}</span>
@@ -89,7 +91,7 @@
 <script>
     function subtotal(items){
 document.getElementById("subtotal_checkout").value = cartLS.total()
-document.querySelector(".subtotal").innerHTML = cartLS.total()
+document.querySelector(".subtotals").innerHTML = cartLS.total()
 }
 subtotal(cartLS.list())
 cartLS.onChange(subtotal)

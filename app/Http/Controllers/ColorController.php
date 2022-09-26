@@ -38,6 +38,7 @@ class ColorController extends Controller
     {
 
         $request->validate([
+            'color' => 'required',
             'name' => 'required',
         ]);
 

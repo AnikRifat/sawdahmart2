@@ -80,8 +80,26 @@ $productID = '#product'. rand(100,1000)
                                   onchange="readURL3(this);">
                             </div>
                             <div class="mb-4">
+
+                                <label class="form-label" for="image_4">Product Image 3</label>
+                                <br>
+                                <img src="{{ asset('/') }}assets/admin/images/thumb.png" alt=""
+                                  class="img-thumbnail mb-2" id="thm4" height="200" width="200">
+                                <input class="form-control" type="file" id="image_4" name="image_4"
+                                  onchange="readURL4(this);">
+                            </div>
+                            <div class="mb-4">
+
+                                <label class="form-label" for="image_5">Product Image 3</label>
+                                <br>
+                                <img src="{{ asset('/') }}assets/admin/images/thumb.png" alt=""
+                                  class="img-thumbnail mb-2" id="thm5" height="200" width="200">
+                                <input class="form-control" type="file" id="image_5" name="image_5"
+                                  onchange="readURL5(this);">
+                            </div>
+                            <div class="mb-4">
                                 <label class="form-label" for="color">Select colors:</label>
-                                <select id="color" class="-select" name="color" multiple>
+                                <select id="color" class="-select" name="color[]" multiple>
                                     @foreach ($colors as $color)
                                     <option value="{{ $color->id }}">
                                         {{ $color->name }}
@@ -91,7 +109,7 @@ $productID = '#product'. rand(100,1000)
                             </div>
                             <div class="mb-4">
                                 <label class="form-label" for="size">Select sizes:</label>
-                                <select id="size" class="-select" name="size" multiple>
+                                <select id="size" class="-select" name="size[]" multiple>
                                     @foreach ($sizes as $size)
                                     <option value="{{ $size->id }}">{{ $size->name }}</option>
                                     @endforeach

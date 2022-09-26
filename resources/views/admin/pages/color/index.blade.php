@@ -18,7 +18,9 @@
                             <form action="{{ route('createcolor') }}" method="post">
                                 @csrf
                                 <div class="hstack gap-3">
-                                    <input class="form-control me-auto" name="name" type="color"
+                                    <input class="form-control me-auto" name="color" type="color"
+                                      placeholder="Add your color here...">
+                                    <input class="form-control me-auto" name="name" type="text"
                                       placeholder="Add your color here...">
                                     <button type="submit" class="btn btn-secondary">Add</button>
                                 </div>
@@ -34,6 +36,7 @@
 
                             <thead>
                                 <tr>
+                                    <th>color</th>
                                     <th>Name</th>
                                     <th>Action</th>
                                 </tr>
@@ -42,7 +45,8 @@
                                 @foreach ($colors as $item)
                                 <tr>
 
-                                    <td style="background-color: {{ $item->name }}">{{ $item->name }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td style="background-color: {{ $item->color }}"></td>
                                     <td class="d-flex justify-content-around">
                                         <a href="{{ route('edit.color',$item->id) }}" class="btn btn-info btn-sm"><i
                                               class="fas fa-edit"></i></a>

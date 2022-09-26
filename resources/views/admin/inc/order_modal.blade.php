@@ -89,6 +89,8 @@ $products = $item->product_id($item->track_id);
                                                                         <th>Item Item</th>
                                                                         <th class="text-center">Price</th>
                                                                         <th class="text-center">Quantity</th>
+                                                                        <th class="text-center">size</th>
+                                                                        <th class="text-center">color</th>
                                                                         <th class="text-right">Amount</th>
                                                                     </tr>
                                                                 </thead>
@@ -107,6 +109,12 @@ $products = $item->product_id($item->track_id);
                                                                         </td>
                                                                         <td class="text-center">
                                                                             {{ $product->product_quantity }}
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            {{ $product->product_size }}
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            {{ $product->product_color }}
                                                                         </td>
                                                                         <td class="text-right">BDT
                                                                             {{ $product->product_price * $product->product_quantity }}.00

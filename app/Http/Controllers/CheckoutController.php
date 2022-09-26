@@ -43,6 +43,8 @@ class CheckoutController extends Controller
         $product_id = $request->item_id;
         $product_name = $request->item_name;
         $product_price = $request->item_price;
+        $product_size = $request->item_size;
+        $product_color = $request->item_color;
         // dd($product_name);
         $product_quantity = $request->item_quantity;
         $subtotal = $request->subtotal;
@@ -60,6 +62,8 @@ class CheckoutController extends Controller
                 'product_name' => $product_name[$i],
                 'product_price' => $product_price[$i],
                 'product_quantity' => $product_quantity[$i],
+                'product_color' => $product_color[$i],
+                'product_size' => $product_size[$i],
                 'date' => $date,
                 'time' => $time
             ];

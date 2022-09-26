@@ -1,4 +1,17 @@
 <!-- The Modal -->
+@php
+// $color = DB::table('productcolors')->where('product_id', $product->product_id)->get();
+$size = DB::table('productsizes')->where('product_id', $product->product_id)->get();
+
+
+$color = DB::table('productcolors')
+->join('colors', 'productcolors.color_id', '=', 'colors.id')
+->select('colors.id','colors.name')
+->get();
+
+
+
+@endphp
 
 <div class="modal fade" id="myModal{{ $product->id }}" tabindex="-1" role="dialog" aria-hidden="true">
 
@@ -14,25 +27,29 @@
 
                             <div class="quick-view-learg-img">
                                 <div class="quick-view-tab-content tab-content">
-                                    <div class="tab-pane active show fade" id="modal1" role="tabpanel">
+                                    <div class="tab-pane active show fade" id="modal{{ $product->id }}1"
+                                      role="tabpanel">
                                         <img src="{{ asset('/') }}assets/images/product/{{ $product->image }}" alt="">
                                     </div>
-                                    <div class="tab-pane fade" id="modal2" role="tabpanel">
+                                    <div class="tab-pane fade" id="modal{{ $product->id }}2" role="tabpanel">
                                         <img src="{{ asset('/') }}assets/images/product/{{ $product->image_2 }}" alt="">
                                     </div>
-                                    <div class="tab-pane fade" id="modal3" role="tabpanel">
+                                    <div class="tab-pane fade" id="modal{{ $product->id }}3" role="tabpanel">
                                         <img src="{{ asset('/') }}assets/images/product/{{ $product->image_3 }}" alt="">
                                     </div>
                                 </div>
                             </div>
                             <div class="quick-view-list nav" role=tablist>
-                                <a class="active" href="#modal1" data-bs-toggle="tab" role="tab" aria-selected="true">
+                                <a class="active" href="#modal{{ $product->id }}1" data-bs-toggle="tab" role="tab"
+                                  aria-selected="true">
                                     <img src="{{ asset('/') }}assets/images/product/{{ $product->image }}" alt="">
                                 </a>
-                                <a href="#modal2" data-bs-toggle="tab" role="tab" aria-selected="false">
+                                <a href="#modal{{ $product->id }}2" data-bs-toggle="tab" role="tab"
+                                  aria-selected="false">
                                     <img src="{{ asset('/') }}assets/images/product/{{ $product->image_2 }}" alt="">
                                 </a>
-                                <a href="#modal3" data-bs-toggle="tab" role="tab" aria-selected="false">
+                                <a href="#modal{{ $product->id }}3" data-bs-toggle="tab" role="tab"
+                                  aria-selected="false">
                                     <img src="{{ asset('/') }}assets/images/product/{{ $product->image_3 }}" alt="">
                                 </a>
                             </div>
@@ -45,7 +62,31 @@
                                 </div>
 
                                 <p>{!! $product->details !!}</p>
+                                <div class="quick-view-select">
+                                    @if($color)
+                                    <div class="select-option-part">
+                                        <label>Color*</label>
+                                        <select class="select" name="color">
+                                            <option value="">Select</option>
+                                            @foreach ($colors as $item)
+                                            <option value="{{ $item->id }}" style="background-color:{{ $item->name }} ">
+                                            </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    @endif
+                                    @if($size)
+                                    <div class="select-option-part">
+                                        <label>Size*</label>
+                                        <select class="select" name="size">
+                                            @foreach ($sizes as $item)
+                                            <option value="">{{ $item->size_id }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    @endif
 
+                                </div>
                                 <div class="quickview-plus-minus">
                                     <div class="quickview-btn-cart">
                                         <a class="btn-hover-black btn-cart cart_btn{{ $product->id }}"
@@ -69,9 +110,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     </div>

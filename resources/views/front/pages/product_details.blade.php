@@ -1,256 +1,235 @@
 @extends('front.layouts.app')
 @section('content')
+@php
+// $color = DB::table('productcolors')->where('product_id', $product->product_id)->get();
+
+
+
+
+@endphp
 <div class="main-body">
-    <!-- content starts here -->
-
-    <!-- PAGE BANNER SECTION -->
-    <div class="page-banner-section section">
+    <div class="product-details ptb-100 pb-90">
         <div class="container">
             <div class="row">
-                <div class="page-banner-content col-xs-12">
-                    <h2>Product Details</h2>
-                    <ul class="breadcrumb">
-                        <li><a href="index-2.html">Home</a></li>
-                        <li class="active">Product Details</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END PAGE BANNER SECTION -->
-
-    <!-- PAGE SECTION START -->
-    <div class="page-section section pt-100 pb-60">
-        <div class="container">
-            <div class="row mb-40">
-                <div class="col-12 col-md-6 col-lg-4 mb-40">
-                    <!-- Tab panes -->
-                    <div class="tab-content mb-10">
-                        <div class="pro-large-img tab-pane active" id="pro-large-img-1">
-                            <img src="{{ asset('/') }}assets/images/product/{{ $product->image }}" alt="Image" />
-                        </div>
-                        @if($product->image_2)
-                        <div class="pro-large-img tab-pane" id="pro-large-img-2">
-                            <img src="{{ asset('/') }}assets/images/product/{{ $product->image_2 }}" alt="Image" />
-                        </div>
-                        @endif
-                        @if($product->image_3)
-                        <div class="pro-large-img tab-pane" id="pro-large-img-3">
-                            <img src="{{ asset('/') }}assets/images/product/{{ $product->image_3 }}" alt="Image" />
-                        </div>
-                        @endif
-
-                    </div>
-                    <!-- Nav tabs -->
-                    <div class="pro-thumb-img-slider nav">
-                        <div><a href="#pro-large-img-1" data-bs-toggle="tab"><img
-                                  src="{{ asset('/') }}assets/images/product/{{ $product->image }}" alt="Image" /></a>
-                        </div>
-                        @if($product->image_2)
-                        <div><a href="#pro-large-img-2" data-bs-toggle="tab"><img
-                                  src="{{ asset('/') }}assets/images/product/{{ $product->image_2 }}" alt="Image" /></a>
-                        </div>
-                        @endif
-                        @if($product->image_3)
-                        <div><a href="#pro-large-img-2" data-bs-toggle="tab"><img
-                                  src="{{ asset('/') }}assets/images/product/{{ $product->image_3 }}" alt="Image" /></a>
-                        </div>
-                        @endif
-                        @if($product->image_2)
-                        <div><a href="#pro-large-img-2" data-bs-toggle="tab"><img
-                                  src="{{ asset('/') }}assets/images/product/{{ $product->image_2 }}" alt="Image" /></a>
-                        </div>
-                        @endif
-                        @if($product->image_3)
-                        <div><a href="#pro-large-img-2" data-bs-toggle="tab"><img
-                                  src="{{ asset('/') }}assets/images/product/{{ $product->image_3 }}" alt="Image" /></a>
-                        </div>
-                        @endif
-
-
-
+                <div class="col-md-12">
+                    <div class="product-details-btn">
+                        <a href="#"><i class="ion-arrow-left-c"></i></a>
+                        <a class="active" href="#"><i class="ion-arrow-right-c"></i></a>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-8 mb-40">
-                    <div class="product-details">
-                        <h2 class="title">{{ $product->name }}</h2>
-                        <span class="price section"><span class="new">${{ $product->price }}.00</span></span>
-
-                        <div class="short-desc section">
-                            <p><strong>Quick Overview:</strong> {!! $product->details !!}</p>
-                        </div>
-
-                        <div class="quantity-cart section">
-                            <button type="button" class="add-to-cart"
-                              onclick="cartLS.add({id: {{ $product->id }}, name: '{{ $product->name }}', price: {{ $product->price }}})">add
-                                to
-                                cart</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <h2 class="despro">Product Description</h2>
-
-                    <div class="container">
-                        {!! $product->description !!}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- PAGE SECTION END -->
-    <!-- PRODUCT SECTION START -->
-    {{-- <div class="product-section section pb-100">
-        <div class="container">
-            <div class="section-title text-center mb-70">
-                <h2>related products</h2>
             </div>
             <div class="row">
-                <div class="product-slider product-slider-4 slick-space">
-                    <!-- product-item start -->
-                    <div class="product-item text-center">
-                        <div class="product-img">
-                            <a class="image" href="product-details.php"><img
-                                  src="{{ asset('/') }}assets/img/product/1.jpg" alt="" /></a>
-    <a href="cart#" class="add-to-cart">add to cart</a>
-    <div class="action-btn fix">
-        <!-- <a href="wishlist#" title="Wishlist"><i class="pe-7s-like"></i></a> -->
-        <a href="product-details.php" title="Quickview"><i class="pe-7s-look"></i></a>
-        <!-- <a href="product-details.php" title="Compare"><i class="pe-7s-repeat"></i></a> -->
-    </div>
-</div>
-<div class="product-info">
-    <h5 class="title"><a href="product-details.php">Le Parc Minotti Chair</a></h5>
-    <span class="price"><span class="new">$169.00</span></span>
-</div>
-</div>
-<!-- product-item end -->
-<!-- product-item start -->
-<div class="product-item text-center">
-    <div class="product-img">
-        <a class="image" href="product-details.php"><img src="{{ asset('/') }}assets/img/product/1.jpg" alt="" /></a>
-        <a href="cart#" class="add-to-cart">add to cart</a>
-        <div class="action-btn fix">
-            <!-- <a href="wishlist#" title="Wishlist"><i class="pe-7s-like"></i></a> -->
-            <a href="product-details.php" title="Quickview"><i class="pe-7s-look"></i></a>
-            <!-- <a href="product-details.php" title="Compare"><i class="pe-7s-repeat"></i></a> -->
-        </div>
-    </div>
-    <div class="product-info">
-        <h5 class="title"><a href="product-details.php">Le Parc Minotti Chair</a></h5>
-        <span class="price"><span class="new">$169.00</span></span>
-    </div>
-</div>
-<!-- product-item end -->
-<!-- product-item start -->
-<div class="product-item text-center">
-    <div class="product-img">
-        <a class="image" href="product-details.php"><img src="{{ asset('/') }}assets/img/product/1.jpg" alt="" /></a>
-        <a href="cart#" class="add-to-cart">add to cart</a>
-        <div class="action-btn fix">
-            <!-- <a href="wishlist#" title="Wishlist"><i class="pe-7s-like"></i></a> -->
-            <a href="product-details.php" title="Quickview"><i class="pe-7s-look"></i></a>
-            <!-- <a href="product-details.php" title="Compare"><i class="pe-7s-repeat"></i></a> -->
-        </div>
-    </div>
-    <div class="product-info">
-        <h5 class="title"><a href="product-details.php">Le Parc Minotti Chair</a></h5>
-        <span class="price"><span class="new">$169.00</span></span>
-    </div>
-</div>
-<!-- product-item end -->
-<!-- product-item start -->
-<div class="product-item text-center">
-    <div class="product-img">
-        <a class="image" href="product-details.php"><img src="{{ asset('/') }}assets/img/product/1.jpg" alt="" /></a>
-        <a href="cart#" class="add-to-cart">add to cart</a>
-        <div class="action-btn fix">
-            <!-- <a href="wishlist#" title="Wishlist"><i class="pe-7s-like"></i></a> -->
-            <a href="product-details.php" title="Quickview"><i class="pe-7s-look"></i></a>
-            <!-- <a href="product-details.php" title="Compare"><i class="pe-7s-repeat"></i></a> -->
-        </div>
-    </div>
-    <div class="product-info">
-        <h5 class="title"><a href="product-details.php">Le Parc Minotti Chair</a></h5>
-        <span class="price"><span class="new">$169.00</span></span>
-    </div>
-</div>
-<!-- product-item end -->
-<!-- product-item start -->
-<div class="product-item text-center">
-    <div class="product-img">
-        <a class="image" href="product-details.php"><img src="{{ asset('/') }}assets/img/product/1.jpg" alt="" /></a>
-        <a href="cart#" class="add-to-cart">add to cart</a>
-        <div class="action-btn fix">
-            <!-- <a href="wishlist#" title="Wishlist"><i class="pe-7s-like"></i></a> -->
-            <a href="product-details.php" title="Quickview"><i class="pe-7s-look"></i></a>
-            <!-- <a href="product-details.php" title="Compare"><i class="pe-7s-repeat"></i></a> -->
-        </div>
-    </div>
-    <div class="product-info">
-        <h5 class="title"><a href="product-details.php">Le Parc Minotti Chair</a></h5>
-        <span class="price"><span class="new">$169.00</span></span>
-    </div>
-</div>
-<!-- product-item end -->
-<!-- product-item start -->
-<div class="product-item text-center">
-    <div class="product-img">
-        <a class="image" href="product-details.php"><img src="{{ asset('/') }}assets/img/product/1.jpg" alt="" /></a>
-        <a href="cart#" class="add-to-cart">add to cart</a>
-        <div class="action-btn fix">
-            <!-- <a href="wishlist#" title="Wishlist"><i class="pe-7s-like"></i></a> -->
-            <a href="product-details.php" title="Quickview"><i class="pe-7s-look"></i></a>
-            <!-- <a href="product-details.php" title="Compare"><i class="pe-7s-repeat"></i></a> -->
-        </div>
-    </div>
-    <div class="product-info">
-        <h5 class="title"><a href="product-details.php">Le Parc Minotti Chair</a></h5>
-        <span class="price"><span class="new">$169.00</span></span>
-    </div>
-</div>
-<!-- product-item end -->
-<!-- product-item start -->
-<div class="product-item text-center">
-    <div class="product-img">
-        <a class="image" href="product-details.php"><img src="{{ asset('/') }}assets/img/product/1.jpg" alt="" /></a>
-        <a href="cart#" class="add-to-cart">add to cart</a>
-        <div class="action-btn fix">
-            <!-- <a href="wishlist#" title="Wishlist"><i class="pe-7s-like"></i></a> -->
-            <a href="product-details.php" title="Quickview"><i class="pe-7s-look"></i></a>
-            <!-- <a href="product-details.php" title="Compare"><i class="pe-7s-repeat"></i></a> -->
-        </div>
-    </div>
-    <div class="product-info">
-        <h5 class="title"><a href="product-details.php">Le Parc Minotti Chair</a></h5>
-        <span class="price"><span class="new">$169.00</span></span>
-    </div>
-</div>
-<!-- product-item end -->
-<!-- product-item start -->
-<div class="product-item text-center">
-    <div class="product-img">
-        <a class="image" href="product-details.php"><img src="{{ asset('/') }}assets/img/product/1.jpg" alt="" /></a>
-        <a href="cart#" class="add-to-cart">add to cart</a>
-        <div class="action-btn fix">
-            <!-- <a href="wishlist#" title="Wishlist"><i class="pe-7s-like"></i></a> -->
-            <a href="product-details.php" title="Quickview"><i class="pe-7s-look"></i></a>
-            <!-- <a href="product-details.php" title="Compare"><i class="pe-7s-repeat"></i></a> -->
-        </div>
-    </div>
-    <div class="product-info">
-        <h5 class="title"><a href="product-details.php">Le Parc Minotti Chair</a></h5>
-        <span class="price"><span class="new">$169.00</span></span>
-    </div>
-</div>
-<!-- product-item end -->
+                <div class="col-md-12 col-lg-7 col-12">
+                    <div class="product-details-img-content">
+                        <div class="product-details-tab mr-70">
+                            <div class="product-details-large tab-content">
+                                <div class="tab-pane active show fade" id="pro-details1" role="tabpanel">
+                                    <div class="easyzoom easyzoom--overlay">
+                                        <a href="{{ asset('/') }}assets/images/product/{{ $product->image }}">
+                                            <img src="{{ asset('/') }}assets/images/product/{{ $product->image }}"
+                                              alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pro-details2" role="tabpanel">
+                                    <div class="easyzoom easyzoom--overlay">
+                                        <a href="{{ asset('/') }}assets/images/product/{{ $product->image_2 }}">
+                                            <img src="{{ asset('/') }}assets/images/product/{{ $product->image_2 }}"
+                                              alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pro-details3" role="tabpanel">
+                                    <div class="easyzoom easyzoom--overlay">
+                                        <a href="{{ asset('/') }}assets/images/product/{{ $product->image_3 }}">
+                                            <img src="{{ asset('/') }}assets/images/product/{{ $product->image_3 }}"
+                                              alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pro-details4" role="tabpanel">
+                                    <div class="easyzoom easyzoom--overlay">
+                                        <a href="{{ asset('/') }}assets/images/product/{{ $product->image_4 }}">
+                                            <img src="{{ asset('/') }}assets/images/product/{{ $product->image_4 }}"
+                                              alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pro-details5" role="tabpanel">
+                                    <div class="easyzoom easyzoom--overlay">
+                                        <a href="{{ asset('/') }}assets/images/product/{{ $product->image_5 }}">
+                                            <img src="{{ asset('/') }}assets/images/product/{{ $product->image_5 }}"
+                                              alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-details-small nav mt-12 main-product-details" role=tablist>
+                                <a class="active mr-12" href="#pro-details1" data-bs-toggle="tab" role="tab"
+                                  aria-selected="true">
+                                    <img src="{{ asset('/') }}assets/images/product/{{ $product->image }}" alt="">
+                                </a>
+                                <a class="mr-12" href="#pro-details2" data-bs-toggle="tab" role="tab"
+                                  aria-selected="true">
+                                    <img src="{{ asset('/') }}assets/images/product/{{ $product->image_2 }}" alt="">
+                                </a>
+                                <a class="mr-12" href="#pro-details3" data-bs-toggle="tab" role="tab"
+                                  aria-selected="true">
+                                    <img src="{{ asset('/') }}assets/images/product/{{ $product->image_3 }}" alt="">
+                                </a>
+                                <a class="mr-12" href="#pro-details4" data-bs-toggle="tab" role="tab"
+                                  aria-selected="true">
+                                    <img src="{{ asset('/') }}assets/images/product/{{ $product->image_4 }}" alt="">
+                                </a>
+                                <a class="mr-12" href="#pro-details5" data-bs-toggle="tab" role="tab"
+                                  aria-selected="true">
+                                    <img src="{{ asset('/') }}assets/images/product/{{ $product->image_5 }}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-5 col-12">
+                    <div class="product-details-content">
+                        <h3>{{ $product->name  }}</h3>
 
-</div>
-</div>
-</div>
-</div> --}}
-<!-- PRODUCT SECTION END -->
+                        <div class="details-price">
+                            <span>BDT {{ $product->price  }}</span>
+                        </div>
+                        <p>{!! $product->details !!}</p>
+                        <div class="quick-view-select">
+                            <div class="select-option-part">
+                                <label>Size*</label>
+                                <select class="select" id="size" name="size">
+                                    <option value="">- Please Select -</option>
+                                    @foreach ($sizes as $item)
+                                    <option value="{{ $item->size->name  }}">{{ $item->size->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="select-option-part">
+                                <label>Color*</label>
+                                <select class="select" id="color" name="color">
+                                    <option value="">- Please Select -</option>
+                                    @foreach ($colors as $item)
+                                    <option value="{{ $item->color->name }}"
+                                      style="background-color:{{ $item->color->color }} ">
+                                        {{ $item->color->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="quickview-plus-minus">
 
-<!-- content Ends here -->
+                            <div class="quickview-btn-cart">
+                                <a onclick="addCart();" class="btn-hover-black cart_btn{{ $product->id }}"
+                                  id="cart_btn{{ $product->id }}"></a>
+                            </div>
+                            <script>
+                                function addCart(){
+                                    let size = document.getElementById('size').value;
+                                    let color = document.getElementById('color').value;
+                                    cartLS.add({
+                                        id: `{{ $product->id }}`,
+                                        name: `{{ $product->name }}`,
+                                        image:`{{$product->image }}`,
+                                        price: `{{ $product->price }}`,
+                                        size:`${size}`,
+                                        color:`${color}`
+                                    })
+                                    window.location = "{{ route('cart') }}";
+                                }
+
+                            </script>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-description-review-area pb-100">
+        <div class="container">
+            <div class="product-description-review text-center">
+                <div class="description-review-title nav" role=tablist>
+                    <a class="active" href="#pro-dec" data-bs-toggle="tab" role="tab" aria-selected="true">
+                        Description
+                    </a>
+
+                </div>
+                <div class="description-review-text tab-content">
+                    <div class="tab-pane active show fade" id="pro-dec" role="tabpanel">
+                        <p>{!! $product->description !!}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- <div class="product-collection-area pb-60">
+        <div class="container">
+            <div class="section-title text-center mb-55">
+                <h2>Related products</h2>
+            </div>
+            <div class="new-collection-slider owl-carousel">
+                <div class="single-product mb-35">
+                    <div class="product-img">
+                        <a href="#"><img src="assets/img/shop/shop-grid-1/1.jpg" alt=""></a>
+                        <span>sale</span>
+                        <div class="product-action">
+                            <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
+                            <a title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                              class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-title-price">
+                            <div class="product-title">
+                                <h4><a href="product-details-6.html">WOODEN FURNITURE</a></h4>
+                            </div>
+                            <div class="product-price">
+                                <span>$110.00</span>
+                            </div>
+                        </div>
+                        <div class="product-cart-categori">
+                            <div class="product-cart">
+                                <span>Furniter</span>
+                            </div>
+                            <div class="product-categori">
+                                <a href="#"><i class="ion-bag"></i> Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> --}}
 </div>
+@push('script')
+<script>
+    function cartSet(){
+        var elemntID = 'cart_btn{{ $product->id }}';
+        var elemntID2 = 'carts_btn{{ $product->id }}';
+        var element = document.getElementById(elemntID);
+        var element2 = document.getElementById(elemntID2);
+
+    if (cartLS.get({{ $product->id }})) {
+
+        element.classList.add("cart-added");
+        element2.classList.add("carts-added","btn-dark" ,"disabled");
+
+    }else if(cartLS.get({{ $product->id }}) === null  || cartLS.get({{ $product->id }}) == undefined){
+        element.classList.add("cart-null");
+        element2.classList.add("carts-null","btn-success");
+    }
+    }
+    cartLS.onChange(cartSet());
+    ;
+    // cartLS.onChange(cartSet)
+
+
+</script>
+@endpush
 @endsection

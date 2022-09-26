@@ -8,10 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class ProductColor extends Model
 {
     use HasFactory;
+    protected $table = 'productcolors';
     protected $fillable = [
         'product_id',
-        'product_color',
         'color_id'
 
     ];
+    public function color()
+    {
+
+        return $this->belongsTo(Color::class, 'color_id', 'id');
+    }
 }

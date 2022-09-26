@@ -8,10 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class ProductSize extends Model
 {
     use HasFactory;
+    protected $table = 'productsizes';
     protected $fillable = [
         'product_id',
-        'product_size',
         'size_id'
 
     ];
+    public function size()
+    {
+        return $this->belongsTo(Size::class, 'size_id', 'id');
+    }
 }

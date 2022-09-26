@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductColor;
+use App\Models\ProductSize;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -38,9 +40,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $size = $request->input('size_id');
-        $color = $request->input('size_id');
-        $color = $request->input('product_id');
+        // dd($request->all());
+        $size = $request->input('size');
+        $color = $request->input('color');
+        $productid = $request->input('product_id');
+        // dd(count($color));
+        // $color = $request->input('product_id');
         // dd($request);
         // return view('admin.pages.products.index');
         $request->validate([
@@ -78,9 +83,42 @@ class ProductController extends Controller
         } else {
             $input['image_3'] = ' ';
         }
+        if ($image = $request->file('image_4')) {
+            $filePath = 'assets/images/product/';
+            $setImage = date('YmdHis') . "_4" . "." . $image->getClientOriginalExtension();
+            $image->move($filePath, $setImage);
+            $input['image_4'] = $setImage;
+        } else {
+            $input['image_4'] = ' ';
+        }
+        if ($image = $request->file('image_5')) {
+            $filePath = 'assets/images/product/';
+            $setImage = date('YmdHis') . "_5" . "." . $image->getClientOriginalExtension();
+            $image->move($filePath, $setImage);
+            $input['image_5'] = $setImage;
+        } else {
+            $input['image_5'] = ' ';
+        }
         // dd($input);
         Product::create($input);
 
+
+        for ($i = 0; $i < count($size); $i++) {
+            $data = [
+                'product_id' => $productid,
+                'size_id' => $size[$i]
+            ];
+
+            ProductSize::create($data);
+        }
+        for ($i = 0; $i < count($color); $i++) {
+            $data = [
+                'product_id' => $productid,
+                'color_id' => $color[$i]
+            ];
+
+            ProductColor::create($data);
+        }
         return redirect()->route('product.index')->with('success', 'Product added successfully.');
     }
 
@@ -104,7 +142,14 @@ class ProductController extends Controller
      */
     public function details(Product $product)
     {
-        return view('front.pages.product_details', compact('product'));
+        $sizes = ProductSize::where('product_id', $product->product_id)->get();
+        $colors = ProductColor::where('product_id', $product->product_id)->get();
+
+
+        // $colors = ProductColor::join('colors', 'productcolors.color_id', '=', 'colors.id')
+        //     ->select('colors.id', 'colors.name')
+        //     ->get();
+        return view('front.pages.product_details', compact('product', 'colors', 'sizes'));
     }
     /**
      * Show the form for editing the specified resource.

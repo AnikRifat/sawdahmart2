@@ -1,6 +1,6 @@
 <div class="single-product mb-35">
     <div class="product-img">
-        <a data-bs-toggle="modal" data-bs-target="#myModal{{ $product->id }}"><img
+        <a href="{{ route('product.details',$product->id) }}"><img
               src="{{ asset('/') }}assets/images/product/{{ $product->image }}" alt=""></a>
         {{-- <span>sale</span> --}}
     </div>
@@ -20,8 +20,7 @@
             </div>
             <div class="product-categor mt-2">
                 <a class="btn btn-sm btn-cart w-100 cart_btn{{ $product->id }}" id="carts_btn{{ $product->id }}"
-                  onclick="cartLS.add({id: {{ $product->id }}, name: '{{ $product->name }}',image:'{{
-                    $product->image }}', price: {{ $product->price }}})"><i class="ion-bag me-2"></i></a>
+                  href="{{ route('product.details',$product->id) }}"><i class="ion-bag me-2"></i></a>
             </div>
         </div>
     </div>

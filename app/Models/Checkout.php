@@ -14,6 +14,8 @@ class Checkout extends Model
         'user_id',
         'product_id',
         'product_quantity',
+        'product_size',
+        'product_color',
         'date',
         'time',
         'product_name',
@@ -22,6 +24,16 @@ class Checkout extends Model
     public function product()
     {
         return $this->belongsTo(Product::class, 'id', 'product_id');
+    }
+    public function color($id)
+    {
+        $items = Color::where('id', $id)->get();
+        return $items->name;
+    }
+    public function size($id)
+    {
+        $items = Size::where('id', $id)->get();
+        return $items->name;
     }
     // public function product()
     // {

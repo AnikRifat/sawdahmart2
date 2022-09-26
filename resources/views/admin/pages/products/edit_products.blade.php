@@ -71,6 +71,24 @@
                                   onchange="readURL3(this);">
                             </div>
                             <div class="mb-4">
+
+                                <label class="form-label" for="image_4">Product Image 4</label>
+                                <br>
+                                <img src="{{ asset('/') }}assets/images/product/{{ $product->image_4 }}" alt=""
+                                  class="img-thumbnail mb-2" id="thm4" height="200" width="200">
+                                <input class="form-control" type="file" id="image_4" name="image_4"
+                                  onchange="readURL4(this);">
+                            </div>
+                            <div class="mb-4">
+
+                                <label class="form-label" for="image_5">Product Image 5</label>
+                                <br>
+                                <img src="{{ asset('/') }}assets/images/product/{{ $product->image_5 }}" alt=""
+                                  class="img-thumbnail mb-2" id="thm5" height="200" width="200">
+                                <input class="form-control" type="file" id="image_5" name="image_5"
+                                  onchange="readURL5(this);">
+                            </div>
+                            <div class="mb-4">
                                 <label class="form-label" for="category_id">Category Select</label>
                                 <select class="form-select" id="category_id" name="category_id" onchange="genSubCat()">
                                     <option selected value="{{ $product->category?->id }}">

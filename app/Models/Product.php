@@ -17,6 +17,8 @@ class Product extends Model
         'image',
         'image_2',
         'image_3',
+        'image_4',
+        'image_5',
         'price',
         'unit',
         'category_id',
@@ -30,4 +32,5 @@ class Product extends Model
     {
         return $this->belongsTo(SubCategory::class, 'sub_category_id', 'id');
     }
+    
 }
