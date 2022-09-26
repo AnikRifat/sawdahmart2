@@ -1,5 +1,8 @@
 @extends('admin.layouts.app')
 @section('content')
+@php
+$productID = '#product'. rand(100,1000)
+@endphp
 <!-- ============================================================== -->
 <!-- Start Content here -->
 <!-- ============================================================== -->
@@ -14,6 +17,15 @@
                         <h5 class="card-title mb-4">Products</h5>
                         <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
+
+
+
+
+                            <div class="mb-4">
+                                <label class="form-label" for="product_id">Product ID</label>
+                                <input class="form-control" type="text" id="product_id" name="product_id"
+                                  placeholder="product ID" value="{{ $productID }}" readonly>
+                            </div>
                             <div class="mb-4">
                                 <label class="form-label" for="name">Product Name</label>
                                 <input class="form-control" type="text" id="name" name="name" placeholder="product name"
@@ -29,6 +41,7 @@
                                 <textarea class="form-control" type="text" id="ckeditor2" name="description"
                                   placeholder="product description" value=""></textarea>
                             </div>
+
                             <div class="mb-4">
                                 <label class="form-label" for="price">Product price</label>
                                 <input class="form-control" type="text" id="price" name="price"
@@ -67,6 +80,24 @@
                                   onchange="readURL3(this);">
                             </div>
                             <div class="mb-4">
+                                <label class="form-label" for="color">Select colors:</label>
+                                <select id="color" class="-select" name="color" multiple>
+                                    @foreach ($colors as $color)
+                                    <option value="{{ $color->id }}">
+                                        {{ $color->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label" for="size">Select sizes:</label>
+                                <select id="size" class="-select" name="size" multiple>
+                                    @foreach ($sizes as $size)
+                                    <option value="{{ $size->id }}">{{ $size->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-4">
                                 <label class="form-label" for="category_id">Category Select</label>
                                 <select class="form-select" id="category_id" name="category_id" onchange="genSubCat()">
                                     <option>Select</option>
@@ -92,9 +123,8 @@
     </div>
 
 </div>
-<script>
 
-</script>
+
 @endsection
 {{-- ((res => {
     field.innerHTML = `

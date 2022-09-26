@@ -12,7 +12,7 @@
         <!-- plugin css -->
         <link href="{{ asset('/') }}assets/admin/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css"
           rel="stylesheet" type="text/css" />
-
+        <link rel="stylesheet" href="{{ asset('/') }}assets/admin/css/multiselect.css" type="text/css" />
         {{-- <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" /> --}}
         <!-- preloader css -->
         <link rel="stylesheet" href="{{ asset('/') }}assets/admin/css/preloader.min.css" type="text/css" />

@@ -14,6 +14,7 @@
 
 <!-- JAVASCRIPT -->
 <script src="{{ asset('/') }}assets/admin/libs/jquery/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="{{ asset('/') }}assets/admin/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="{{ asset('/') }}assets/admin/libs/metismenu/metisMenu.min.js"></script>
 <script src="{{ asset('/') }}assets/admin/libs/simplebar/simplebar.min.js"></script>
@@ -51,15 +52,22 @@
 <!-- Datatable init js -->
 <script src="{{ asset('/') }}assets/admin/js/pages/datatables.init.js"></script>
 <!-- dashboard init -->
+<script type="text/javascript" src="{{ asset('/') }}assets/admin/js/multiselect.js"></script>
 
 {{-- <script src="{{ asset('/') }}assets/admin/js/pages/dashboard.init.js"></script> --}}
 <script src="{{ asset('/') }}assets/admin/libs/sweetalert2/sweetalert2.min.js"></script>
 <script src="{{ asset('/') }}assets/admin/libs/dropzone/min/dropzone.min.js"></script>
+
+
+
 <script src="{{ asset('/') }}assets/admin/js/app.js"></script>
 @stack('script')
 
 
-
+<script type="text/javascript">
+    $('#color').multiSelect();
+    $('#size').multiSelect();
+</script>
 <script>
     function readURL(input) {
             if (input.files && input.files[0]) {

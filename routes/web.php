@@ -6,6 +6,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\ColorController;
+use App\Http\Controllers\SizeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -44,7 +46,17 @@ Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::get('editcategory/{category}', [App\Http\Controllers\CategoryController::class, 'edit'])->name('edit.category');
     Route::put('updatecategory/{category}', [App\Http\Controllers\CategoryController::class, 'update'])->name('update.category');
 
+    Route::post('color.store', [App\Http\Controllers\ColorController::class, 'store'])->name('createcolor');
+    Route::delete('deletecolor/{color}', [App\Http\Controllers\ColorController::class, 'destroy'])->name('deletecolor');
+    Route::get('color', [App\Http\Controllers\ColorController::class, 'index'])->name('viewcolor');
+    Route::get('editcolor/{color}', [App\Http\Controllers\ColorController::class, 'edit'])->name('edit.color');
+    Route::put('updatecolor/{color}', [App\Http\Controllers\ColorController::class, 'update'])->name('update.color');
 
+    Route::post('size.store', [App\Http\Controllers\SizeController::class, 'store'])->name('createsize');
+    Route::delete('deletesize/{size}', [App\Http\Controllers\SizeController::class, 'destroy'])->name('deletesize');
+    Route::get('size', [App\Http\Controllers\SizeController::class, 'index'])->name('viewsize');
+    Route::get('editsize/{size}', [App\Http\Controllers\SizeController::class, 'edit'])->name('edit.size');
+    Route::put('updatesize/{size}', [App\Http\Controllers\SizeController::class, 'update'])->name('update.size');
 
     Route::get('order', [App\Http\Controllers\OrderController::class, 'index'])->name('order.index');
     Route::get('order/accept', [App\Http\Controllers\OrderController::class, 'acceptview'])->name('accept.view');

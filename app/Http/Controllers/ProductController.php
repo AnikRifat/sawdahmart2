@@ -38,9 +38,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $size = $request->input('size_id');
+        $color = $request->input('size_id');
+        $color = $request->input('product_id');
         // dd($request);
         // return view('admin.pages.products.index');
         $request->validate([
+            'product_id' => 'required',
             'name' => 'required',
             'details' => 'required',
             'description' => 'required',

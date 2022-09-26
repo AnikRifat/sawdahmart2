@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Models\Category;
+use App\Models\Color;
 use App\Models\Product;
 use App\Models\Review;
+use App\Models\Size;
 use App\Models\Website;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -36,5 +38,11 @@ class AppServiceProvider extends ServiceProvider
         View::share('products', $products);
         $reviews = Review::all();
         View::share('reviews', $reviews);
+
+        $colors = Color::all();
+        View::share('colors', $colors);
+
+        $sizes = Size::all();
+        View::share('sizes', $sizes);
     }
 }
