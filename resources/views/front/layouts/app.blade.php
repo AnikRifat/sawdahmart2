@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/') }}assets/front/img/favicon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/') }}assets/images/logo/{{ $content->logo }}">
 
         <!-- all css here -->
         <link rel="stylesheet" href="{{ asset('/') }}assets/front/css/bootstrap.min.css">
