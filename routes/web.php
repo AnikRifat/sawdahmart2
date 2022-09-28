@@ -35,16 +35,28 @@ Route::get('category/{category_id}', [App\Http\Controllers\PublicController::cla
 
 Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function () {
 
+    Route::put('/password/change', [App\Http\Controllers\PasswordController::class, 'update'])->name('admin.password.update');
+    Route::post('info/update', [App\Http\Controllers\UserController::class, 'admininfoupdate'])->name('admin.info.update');
+
     Route::get('content', [App\Http\Controllers\WebsiteController::class, 'index'])->name('content');
     Route::put('contentedit/{content}', [App\Http\Controllers\WebsiteController::class, 'update'])->name('contentedit');
 
+    Route::get('customer.index', [App\Http\Controllers\UserController::class, 'customer'])->name('customer.index');
+    Route::delete('deletecustomer/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('customer.delete');
 
+    Route::get('admin.index', [App\Http\Controllers\UserController::class, 'admin'])->name('admin.user.index');
+    Route::put('/password/change', [App\Http\Controllers\PasswordController::class, 'update'])->name('admin.password.update');
 
     Route::post('category.store', [App\Http\Controllers\CategoryController::class, 'store'])->name('createcategory');
     Route::delete('deleteCategory/{category}', [App\Http\Controllers\CategoryController::class, 'destroy'])->name('deleteCategory');
     Route::get('category', [App\Http\Controllers\CategoryController::class, 'index'])->name('viewcategory');
     Route::get('editcategory/{category}', [App\Http\Controllers\CategoryController::class, 'edit'])->name('edit.category');
     Route::put('updatecategory/{category}', [App\Http\Controllers\CategoryController::class, 'update'])->name('update.category');
+
+    Route::get('slider.index', [App\Http\Controllers\SliderController::class, 'index'])->name('slider.index');
+    Route::post('slider.store', [App\Http\Controllers\SliderController::class, 'store'])->name('slider.store');
+    Route::delete('deleteslider/{slider}', [App\Http\Controllers\SliderController::class, 'destroy'])->name('slider.delete');
+
 
     Route::post('color.store', [App\Http\Controllers\ColorController::class, 'store'])->name('createcolor');
     Route::delete('deletecolor/{color}', [App\Http\Controllers\ColorController::class, 'destroy'])->name('deletecolor');
@@ -91,6 +103,7 @@ Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function () {
 
 Route::prefix('user')->middleware('auth', 'isUser')->group(function () {
     Route::get('index', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
+    Route::post('info/update', [App\Http\Controllers\UserController::class, 'infoupdate'])->name('user.info.update');
     Route::post('check', [App\Http\Controllers\CheckoutController::class, 'store'])->name('check');
 });
 
@@ -106,5 +119,8 @@ Auth::routes();
 
 
 Route::get('/redirectTo', [App\Http\Controllers\HomeController::class, 'redirectTo'])->name('redirectTo');
-Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
+Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->middleware('auth', 'isAdmin')->name('admin');
 Route::get('/user', [App\Http\Controllers\HomeController::class, 'user'])->name('user');
+Route::put('/password/change', [App\Http\Controllers\PasswordController::class, 'update'])->name('user.password.update');
+Route::get('/edituser', [App\Http\Controllers\HomeController::class, 'edituser'])->name('user.edit');
+Route::get('/vieworder/{order}', [App\Http\Controllers\HomeController::class, 'vieworder'])->name('user.order.view');

@@ -16,6 +16,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('slider.index') }}">
+                        <i data-feather="home"></i>
+                        <span data-key="t-color">Slider</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('viewcolor') }}">
                         <i data-feather="home"></i>
                         <span data-key="t-color">Color</span>
@@ -118,6 +124,25 @@
                         </a>
                     </li>
                 </ul>
+            </li>
+            <li>
+                <a href="javascript: void(0);" class="has-arrow">
+                    <i data-feather="grid"></i>
+                    <span data-key="t-apps">User</span>
+                </a>
+                <ul class="sub-menu" aria-expanded="false">
+                    <li>
+                        <a href="{{ route('customer.index') }}">
+                            <span data-key="t-chat">Customer</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.user.index') }}">
+                            <span data-key="t-chat">Admin</span>
+                        </a>
+                    </li>
+                </ul>
+
             </li>
 
 

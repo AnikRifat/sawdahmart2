@@ -65,26 +65,35 @@
                                 </div>
                             </div>
                             <div class="product-details-small nav mt-12 main-product-details" role=tablist>
-                                <a class="active mr-12" href="#pro-details1" data-bs-toggle="tab" role="tab"
+                                <a class="active mr-10" href="#pro-details1" data-bs-toggle="tab" role="tab"
                                   aria-selected="true">
                                     <img src="{{ asset('/') }}assets/images/product/{{ $product->image }}" alt="">
                                 </a>
-                                <a class="mr-12" href="#pro-details2" data-bs-toggle="tab" role="tab"
+
+                                @if($product->image_2 != ' ')
+                                <a class="mr-10" href="#pro-details2" data-bs-toggle="tab" role="tab"
                                   aria-selected="true">
                                     <img src="{{ asset('/') }}assets/images/product/{{ $product->image_2 }}" alt="">
                                 </a>
-                                <a class="mr-12" href="#pro-details3" data-bs-toggle="tab" role="tab"
+                                @endif
+                                @if($product->image_3 != ' ')
+                                <a class="mr-10" href="#pro-details3" data-bs-toggle="tab" role="tab"
                                   aria-selected="true">
                                     <img src="{{ asset('/') }}assets/images/product/{{ $product->image_3 }}" alt="">
                                 </a>
-                                <a class="mr-12" href="#pro-details4" data-bs-toggle="tab" role="tab"
+                                @endif
+                                @if($product->image_4 != ' ')
+                                <a class="mr-10" href="#pro-details4" data-bs-toggle="tab" role="tab"
                                   aria-selected="true">
                                     <img src="{{ asset('/') }}assets/images/product/{{ $product->image_4 }}" alt="">
                                 </a>
-                                <a class="mr-12" href="#pro-details5" data-bs-toggle="tab" role="tab"
+                                @endif
+                                @if($product->image_5 != ' ')
+                                <a class="mr-10" href="#pro-details5" data-bs-toggle="tab" role="tab"
                                   aria-selected="true">
                                     <img src="{{ asset('/') }}assets/images/product/{{ $product->image_5 }}" alt="">
                                 </a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -98,7 +107,9 @@
                         </div>
                         <p>{!! $product->details !!}</p>
                         <div class="quick-view-select">
-                            <div class="select-option-part">
+                            {{-- @php
+                            dd(count($sizes) > 1); @endphp --}}
+                            @if (count($sizes) > 1) <div class="select-option-part">
                                 <label>Size*</label>
                                 <select class="select" id="size" name="size">
                                     <option value="">- Please Select -</option>
@@ -107,7 +118,9 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="select-option-part">
+                            @endif
+
+                            @if (count($colors) > 1) <div class="select-option-part">
                                 <label>Color*</label>
                                 <select class="select" id="color" name="color">
                                     <option value="">- Please Select -</option>
@@ -119,22 +132,38 @@
                                     @endforeach
                                 </select>
                             </div>
+                            @endif
+
                         </div>
                         <div class="quickview-plus-minus">
 
                             <div class="quickview-btn-cart">
-                                <a onclick="addCart();" class="btn-hover-black cart_btn{{ $product->id }}"
+                                <a onclick="addCart{{ $product->id }}();"
+                                  class="btn-hover-black cart_btn{{ $product->id }}"
                                   id="cart_btn{{ $product->id }}"></a>
                             </div>
                             <script>
-                                function addCart(){
-                                    let size = document.getElementById('size').value;
-                                    let color = document.getElementById('color').value;
+                                function addCart{{ $product->id }}(){
+                                     let size;
+                                     let color;
+                                    if (document.getElementById('size') == null || document.getElementById('size') == undefined) {
+                                         size = 'no';
+
+                                    }else{
+                                        size = document.getElementById('size').value;
+                                    }
+                                    if (document.getElementById('color') == null || document.getElementById('color') == undefined) {
+                                        color = 'no';
+
+                                    }else{
+                                         color = document.getElementById('color').value;
+                                    }
                                     cartLS.add({
                                         id: `{{ $product->id }}`,
                                         name: `{{ $product->name }}`,
                                         image:`{{$product->image }}`,
                                         price: `{{ $product->price }}`,
+                                        quantity: 1,
                                         size:`${size}`,
                                         color:`${color}`
                                     })
@@ -222,7 +251,7 @@
 
     }else if(cartLS.get({{ $product->id }}) === null  || cartLS.get({{ $product->id }}) == undefined){
         element.classList.add("cart-null");
-        element2.classList.add("carts-null","btn-success");
+        // element2.classList.add("carts-null","btn-success");
     }
     }
     cartLS.onChange(cartSet());

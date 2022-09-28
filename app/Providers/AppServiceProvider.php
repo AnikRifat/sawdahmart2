@@ -7,6 +7,7 @@ use App\Models\Color;
 use App\Models\Product;
 use App\Models\Review;
 use App\Models\Size;
+use App\Models\Slider;
 use App\Models\Website;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -44,5 +45,8 @@ class AppServiceProvider extends ServiceProvider
 
         $sizes = Size::all();
         View::share('sizes', $sizes);
+
+        $sliders = Slider::all();
+        View::share('sliders', $sliders);
     }
 }

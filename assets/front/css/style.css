@@ -5651,3 +5651,8 @@ button.close.position-absolute {}
     cursor: not-allowed;
     background: #000 !important;
 }
+
+.f-left.user-text {
+    font-size: 1rem;
+    line-height: 2;
+}

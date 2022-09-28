@@ -166,7 +166,16 @@ showConfirmButton: !1,
 timer: 3000
 })
 Swal();
-
+@endif
+@if ($massage = Session::get('error'))
+Swal.fire({
+position: "top-end",
+icon: "Error",
+title: "{{ $massage }}",
+showConfirmButton: !1,
+timer: 3000
+})
+Swal();
 @endif
 ClassicEditor.create(document.querySelector("#ckeditor1"))
 .then(function(e){e.ui.view.editable.element.style.height="200px"})

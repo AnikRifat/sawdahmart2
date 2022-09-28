@@ -24,7 +24,7 @@ $productID = '#product'. rand(100,1000)
                             <div class="mb-4">
                                 <label class="form-label" for="product_id">Product ID</label>
                                 <input class="form-control" type="text" id="product_id" name="product_id"
-                                  placeholder="product ID" value="{{ $productID }}" readonly>
+                                  placeholder="product ID" value="{{ $productID }}">
                             </div>
                             <div class="mb-4">
                                 <label class="form-label" for="name">Product Name</label>

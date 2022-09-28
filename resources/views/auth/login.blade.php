@@ -22,14 +22,14 @@
                         <div class="login-form">
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
-                                <input type="email" name="email" placeholder="Username" value="{{ old('email') }}">
+                                <input type="email" name="email" placeholder="email" value="{{ old('email') }}">
                                 <input type="password" name="password" placeholder="Password">
                                 <div class="button-box">
                                     <div class="login-toggle-btn">
                                         {{-- <input type="checkbox"> --}}
-                                        <label>register <a class="font-weight-bold"
-                                              href="{{ route('register') }}">here...</a></label>
-                                        <a href="#">Forgot Password?</a>
+                                        <label> <a class="font-weight-bold" href="{{ route('register') }}">register
+                                                here...</a></label>
+                                        <a href="{{ route('password.request') }}">Forgot Password?</a>
                                     </div>
                                     <button type="submit" class="default-btn floatright">Login</button>
                                 </div>

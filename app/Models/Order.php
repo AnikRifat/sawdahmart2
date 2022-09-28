@@ -23,7 +23,10 @@ class Order extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
-
+    // public function product()
+    // {
+    //     return $this->hasMany(User::class, 'product_id', 'id');
+    // }
     public function product_id($id)
     {
         $items = Checkout::where('track_id', $id)->get();

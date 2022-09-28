@@ -60,66 +60,75 @@ class ProductController extends Controller
         ]);
 
         $input = $request->all();
-
-        if ($image = $request->file('image')) {
-            $filePath = 'assets/images/product/';
-            $setImage = date('YmdHis') . "_1" . "." . $image->getClientOriginalExtension();
-            $image->move($filePath, $setImage);
-            $input['image'] = $setImage;
-        }
-        if ($image = $request->file('image_2')) {
-            $filePath = 'assets/images/product/';
-            $setImage = date('YmdHis') . "_2" . "." . $image->getClientOriginalExtension();
-            $image->move($filePath, $setImage);
-            $input['image_2'] = $setImage;
+        if (Product::find($productid)) {
+            return back()->with('error', 'product id should be unique');
         } else {
-            $input['image_2'] = ' ';
-        }
-        if ($image = $request->file('image_3')) {
-            $filePath = 'assets/images/product/';
-            $setImage = date('YmdHis') . "_3" . "." . $image->getClientOriginalExtension();
-            $image->move($filePath, $setImage);
-            $input['image_3'] = $setImage;
-        } else {
-            $input['image_3'] = ' ';
-        }
-        if ($image = $request->file('image_4')) {
-            $filePath = 'assets/images/product/';
-            $setImage = date('YmdHis') . "_4" . "." . $image->getClientOriginalExtension();
-            $image->move($filePath, $setImage);
-            $input['image_4'] = $setImage;
-        } else {
-            $input['image_4'] = ' ';
-        }
-        if ($image = $request->file('image_5')) {
-            $filePath = 'assets/images/product/';
-            $setImage = date('YmdHis') . "_5" . "." . $image->getClientOriginalExtension();
-            $image->move($filePath, $setImage);
-            $input['image_5'] = $setImage;
-        } else {
-            $input['image_5'] = ' ';
-        }
-        // dd($input);
-        Product::create($input);
 
 
-        for ($i = 0; $i < count($size); $i++) {
-            $data = [
-                'product_id' => $productid,
-                'size_id' => $size[$i]
-            ];
+            if ($image = $request->file('image')) {
+                $filePath = 'assets/images/product/';
+                $setImage = date('YmdHis') . "_1" . "." . $image->getClientOriginalExtension();
+                $image->move($filePath, $setImage);
+                $input['image'] = $setImage;
+            }
+            if ($image = $request->file('image_2')) {
+                $filePath = 'assets/images/product/';
+                $setImage = date('YmdHis') . "_2" . "." . $image->getClientOriginalExtension();
+                $image->move($filePath, $setImage);
+                $input['image_2'] = $setImage;
+            } else {
+                $input['image_2'] = ' ';
+            }
+            if ($image = $request->file('image_3')) {
+                $filePath = 'assets/images/product/';
+                $setImage = date('YmdHis') . "_3" . "." . $image->getClientOriginalExtension();
+                $image->move($filePath, $setImage);
+                $input['image_3'] = $setImage;
+            } else {
+                $input['image_3'] = ' ';
+            }
+            if ($image = $request->file('image_4')) {
+                $filePath = 'assets/images/product/';
+                $setImage = date('YmdHis') . "_4" . "." . $image->getClientOriginalExtension();
+                $image->move($filePath, $setImage);
+                $input['image_4'] = $setImage;
+            } else {
+                $input['image_4'] = ' ';
+            }
+            if ($image = $request->file('image_5')) {
+                $filePath = 'assets/images/product/';
+                $setImage = date('YmdHis') . "_5" . "." . $image->getClientOriginalExtension();
+                $image->move($filePath, $setImage);
+                $input['image_5'] = $setImage;
+            } else {
+                $input['image_5'] = ' ';
+            }
+            // dd($input);
+            Product::create($input);
 
-            ProductSize::create($data);
-        }
-        for ($i = 0; $i < count($color); $i++) {
-            $data = [
-                'product_id' => $productid,
-                'color_id' => $color[$i]
-            ];
+            if ($size) {
+                for ($i = 0; $i < count($size); $i++) {
+                    $data = [
+                        'product_id' => $productid,
+                        'size_id' => $size[$i]
+                    ];
 
-            ProductColor::create($data);
+                    ProductSize::create($data);
+                }
+            }
+            if ($color) {
+                for ($i = 0; $i < count($color); $i++) {
+                    $data = [
+                        'product_id' => $productid,
+                        'color_id' => $color[$i]
+                    ];
+
+                    ProductColor::create($data);
+                }
+            }
+
+            return redirect()->route('product.index')->with('success', 'Product added successfully.');
         }
-        return redirect()->route('product.index')->with('success', 'Product added successfully.');
     }
 
     /**

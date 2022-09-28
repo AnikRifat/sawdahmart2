@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="{{ asset('/') }}assets/front/css/bundle.css">
         <link rel="stylesheet" href="{{ asset('/') }}assets/front/css/style.css">
         <link rel="stylesheet" href="{{ asset('/') }}assets/front/css/responsive.css">
+        <script src="{{ asset('/') }}assets/front/js/cart.js"></script>
         <script src="{{ asset('/') }}assets/front/js/vendor/modernizr-3.11.7.min.js"></script>
     </head>
 
@@ -78,7 +79,7 @@
     }
 })
         </script>
-        <script src="{{ asset('/') }}assets/front/js/cart.js"></script>
+
         <script src="{{ asset('/') }}assets/front/js/main.js"></script>
         @stack('script')
         <script>
@@ -86,13 +87,13 @@
             const cart = document.querySelector(".cart");
             const count = document.querySelector(".itemstotal");
             const countt = document.querySelector(".itemstotalcart");
-            if (localStorage.getItem('__cart')) {
-            count.innerHTML = JSON.parse(localStorage.getItem('__cart')).length;
+            // if (localStorage.getItem('__cart')) {
+            // count.innerHTML = JSON.parse(localStorage.getItem('__cart')).length;
 
-            } else {
-            count.innerHTML = 0
+            // } else {
+            // count.innerHTML = 0
 
-            }
+            // }
 
             cart.innerHTML = items.map((item) => `<li class="single-product-cart">
                 <div class="cart-img">
