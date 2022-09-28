@@ -159,11 +159,10 @@
                                          color = document.getElementById('color').value;
                                     }
                                     cartLS.add({
-                                        id: `{{ $product->id }}`,
+                                        id: {{ $product->id }},
                                         name: `{{ $product->name }}`,
                                         image:`{{$product->image }}`,
                                         price: `{{ $product->price }}`,
-                                        quantity: 1,
                                         size:`${size}`,
                                         color:`${color}`
                                     })
@@ -251,7 +250,7 @@
 
     }else if(cartLS.get({{ $product->id }}) === null  || cartLS.get({{ $product->id }}) == undefined){
         element.classList.add("cart-null");
-        // element2.classList.add("carts-null","btn-success");
+         element2.classList.add("carts-null","btn-success");
     }
     }
     cartLS.onChange(cartSet());

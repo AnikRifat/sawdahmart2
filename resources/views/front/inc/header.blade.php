@@ -77,4 +77,16 @@
         </div>
     </div>
 </header>
+<!-- Newsletter Popup Start -->
+<div class="popup_wrapper hidden-sm hidden-xs">
+
+    <div class="test">
+        <span class="popup_off">Close</span>
+        <a href="{{ $content->slider_text }}">
+            <img src="{{ asset('/') }}assets/images/{{ $content->slider }}" width="100%" height="100%" alt="">
+        </a>
+    </div>
+
+</div>
+<!-- Newsletter Popup End -->
 <div class="header-space"></div>
