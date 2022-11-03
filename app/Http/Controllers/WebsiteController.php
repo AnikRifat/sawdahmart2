@@ -72,6 +72,7 @@ class WebsiteController extends Controller
 
         $request->validate([
             'name' => 'required',
+            'currency' => 'required',
             'slider_text' => 'required',
             'email' => 'required',
             'address' => 'required',

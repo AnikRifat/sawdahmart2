@@ -6,14 +6,14 @@
     </div>
     <div class="product-content">
         <div class="product-title-price">
-            <div class="product-title">
-                <h4>{{ $product->name }}</h4>
+            <div class="product-title ">
+                <h4 class="text-ellipsis-2">{{ $product->name }}</h4>
             </div>
-            <div class="product-price">
-                <span>BDT {{ $product->price }}</span>
-            </div>
-        </div>
 
+        </div>
+        <div class="product-price mb-1">
+            <span> {{ $product->price }} <span class="ml-2">{{ $content->currency }}</span></span>
+        </div>
         <div class="product-cart-categor">
             <div class="product-cat">
                 <span>{{ $product->category->name }}</span>
@@ -46,7 +46,5 @@
     cartLS.onChange(cartSet());
     ;
     // cartLS.onChange(cartSet)
-
-
 </script>
 @endpush

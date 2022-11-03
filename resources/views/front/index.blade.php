@@ -1,17 +1,28 @@
 @extends('front.layouts.app')
+<div class="popup_wrapper hidden-sm hidden-xs">
+
+    <div class="test">
+        <span class="popup_off">Close</span>
+        <a href="{{ $content->slider_text }}">
+            <img src="{{ asset('/') }}assets/images/{{ $content->slider }}" width="100%" height="100%" alt="">
+        </a>
+    </div>
+
+</div>
 @section('content')
 @foreach ($products as $product)
 @include('front.inc.details_modal')
 @endforeach
+<!-- Newsletter Popup Start -->
 
+<!-- Newsletter Popup End -->
 
 <div class="slider-area">
     <div class="slider-active owl-carousel">
 
         @foreach ($sliders as $item)
-
         <div class="single-slider single-slider-hm1 bg-img ptb-260"
-          style="background-image: url({{ asset('/') }}assets/images/slider/{{ $item->image }})">
+          style="background-image: url({{ asset('/') }}assets/images/slider/{{ $item->image }});background-repeat: no-repeat;">
         </div>
 
         @endforeach
@@ -32,15 +43,33 @@
 
 <div class="category-area pt-40 pb-50">
     <div class="section-title text-center mb-55">
-        <h2>Our categories</h2>
-        <div class="row">
-            @foreach ($categories as $item)
-            <div class="col-md-6 col-12">
+        <div class="section-title mb-55">
+            <div class="d-flex justify-content-between align-items-center title-custom">
+                <div>
+                    <h2>Our Categories</h2>
+                </div>
+                <div><a href="{{ url('/categories') }}" class="btn btn-danger rounded p-1">
+                        <h5 class="text-light "> <i> view all </i><span><i class="ion-arrow-right-c ml-2 "></i></span>
+                        </h5>
+                    </a></div>
+            </div>
+
+        </div>
+        <div class="owl-category owl-carousel">
+            @foreach ($home_categories as $item)
+            <div class="item ">
                 <a href="{{ route('category',$item->id) }}">
-                    <div class="card category ">
+                    <div class="card text-center category " style="
+                    height: 12rem;
+                ">
                         <div class="card-body">
-                            <h4>{{ $item->name }}</h4>
+                            <img class="img-fluid mx-auto" style="
+                            height: 100px;
+                            width: fit-content;
+                        " src="{{ asset('/') }}assets/images/category/{{ $item->image }}" alt="">
+                            <h6 class="mt-2">{{ $item->name }}</h6>
                         </div>
+
                     </div>
                 </a>
             </div>
@@ -80,17 +109,24 @@
 </div>
 <div class="product-collection-area pb-50">
     <div class="electronic-product">
-        <div class="section-title text-center mb-55">
-            <h2>Featured Products</h2>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when
-                look</p>
+        <div class="section-title mb-55">
+            <div class="d-flex justify-content-between align-items-center title-custom">
+                <div>
+                    <h2>Our Products</h2>
+                </div>
+                <div><a href="{{ route('products') }}" class="btn btn-danger rounded p-1">
+                        <h5 class="text-light "> <i> view all </i><span><i class="ion-arrow-right-c ml-2 "></i></span>
+                        </h5>
+                    </a></div>
+            </div>
+
         </div>
         <div class="row">
 
             <!-- product-item start -->
 
-            @foreach ($products as $product)
-            <div class="col-md-6 col-lg-4 col-xl-3 col-sm-6 col-12">
+            @foreach ($homeProduct as $product)
+            <div class="col-md-4 col-lg-4 col-xl-3 col-sm-6 col-6">
                 @include('front.inc.product')
 
             </div>

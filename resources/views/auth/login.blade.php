@@ -1,7 +1,9 @@
 @extends('front.layouts.app')
 
+
+
 @section('content')
-<div class="breadcrumb-area pt-205 pb-210" style="background-image: url({{ asset('/') }}assets/img/bg/breadcrumb.jpg)">
+<div class="breadcrumb-area pt-205 pb-100" style="background-image: url({{ asset('/') }}assets/images/{{ $content->tvc2 }})">
     <div class="container">
         <div class="breadcrumb-content">
             <h2>login</h2>
@@ -13,7 +15,7 @@
     </div>
 </div>
 <!-- login-area start -->
-<div class="register-area ptb-100">
+<div class="register-area ">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-12 col-lg-6 col-xl-6 ms-auto me-auto">

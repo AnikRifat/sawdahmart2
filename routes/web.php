@@ -26,6 +26,8 @@ Route::get('/', [App\Http\Controllers\PublicController::class, 'index'])->name('
 Route::get('home', [App\Http\Controllers\PublicController::class, 'index'])->name('home');
 // Route::get('login', [App\Http\Controllers\PublicController::class, 'index'])->name('login');
 Route::get('cart', [App\Http\Controllers\PublicController::class, 'cart'])->name('cart');
+Route::get('categories', [App\Http\Controllers\PublicController::class, 'categories'])->name('categories');
+Route::get('products', [App\Http\Controllers\PublicController::class, 'products'])->name('products');
 Route::get('checkout', [App\Http\Controllers\PublicController::class, 'checkout'])->name('checkout');
 Route::get('product.details/{product}', [App\Http\Controllers\ProductController::class, 'details'])->name('product.details');
 Route::get('product.search', [App\Http\Controllers\ProductController::class, 'search'])->name('product.search');

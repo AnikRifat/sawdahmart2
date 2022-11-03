@@ -103,7 +103,7 @@
                         <h3>{{ $product->name  }}</h3>
 
                         <div class="details-price">
-                            <span>BDT {{ $product->price  }}</span>
+                            <span> {{ $product->price  }}<span class="ml-2">{{ $content->currency }}</span></span>
                         </div>
                         <p>{!! $product->details !!}</p>
                         <div class="quick-view-select">
@@ -179,7 +179,7 @@
     </div>
     <div class="product-description-review-area pb-100">
         <div class="container">
-            <div class="product-description-review text-center">
+            <div class="product-description-review ">
                 <div class="description-review-title nav" role=tablist>
                     <a class="active" href="#pro-dec" data-bs-toggle="tab" role="tab" aria-selected="true">
                         Description

@@ -20,6 +20,15 @@
                                 <div class="hstack gap-3">
                                     <input class="form-control me-auto" name="name" type="text"
                                       placeholder="Add your Category here...">
+                                    <div class="mb-4">
+
+                                        <label class="form-label" for="image">Image</label>
+                                        <br>
+                                        <img src="{{ asset('/') }}assets/admin/images/thumb.png" alt=""
+                                          class="img-thumbnail mb-2" id="thm1" style=" height: 200px; width: 200px;">
+                                        <input class="form-control" type="file" id="image" name="image"
+                                          onchange="readURL(this);">
+                                    </div>
                                     <button type="submit" class="btn btn-secondary">Add</button>
                                 </div>
                             </form>

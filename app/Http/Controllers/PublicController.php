@@ -15,7 +15,10 @@ class PublicController extends Controller
      */
     public function index()
     {
-        return view('front.index');
+        $homeProduct = Product::latest()->take(24)->get();
+        $home_categories = Category::latest()->take(8)->get();
+        // dd($homeProduct);
+        return view('front.index', compact('homeProduct', 'home_categories'));
     }
 
     /**
@@ -41,6 +44,14 @@ class PublicController extends Controller
     public function checkout()
     {
         return view('front.pages.checkout');
+    }
+    public function categories()
+    {
+        return view('front.pages.categories');
+    }
+    public function products()
+    {
+        return view('front.pages.products');
     }
     /**
      * Store a newly created resource in storage.

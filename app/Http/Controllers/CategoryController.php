@@ -45,10 +45,17 @@ class CategoryController extends Controller
 
         $request->validate([
             'name' => 'required',
+            'image' => 'required',
         ]);
 
         $input = $request->all();
         // dd($input);
+        if ($image = $request->file('image')) {
+            $filePath = 'assets/images/category/';
+            $setImage = date('YmdHis') . "_category" . "." . $image->getClientOriginalExtension();
+            $image->move($filePath, $setImage);
+            $input['image'] = $setImage;
+        }
         Category::create($input);
 
         return redirect()->route('viewcategory')->with('success', 'Category added successfully.');
@@ -91,6 +98,14 @@ class CategoryController extends Controller
 
         $input = $request->all();
         // dd($input);
+        if ($image = $request->file('image')) {
+            $filePath = 'assets/images/category/';
+            $setImage = date('YmdHis') . "_category" . "." . $image->getClientOriginalExtension();
+            $image->move($filePath, $setImage);
+            $input['image'] = $setImage;
+        } else {
+            $input['image'] = ' ';
+        }
         $category->update($input);
 
         return redirect()->route('viewcategory')->with('success', 'Category Updated successfully.');

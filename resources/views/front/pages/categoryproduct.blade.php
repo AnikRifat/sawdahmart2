@@ -8,8 +8,15 @@
         <div class="container">
             <div class="row">
                 <div class="page-banner-content col-xs-12">
-                    <h2>{{ $cate->name }}</h2>
+                    {{-- <h2>{{ $cate->name }}</h2> --}}
+                    <div class="section-title ">
+                        <div class="d-flex justify-content-between align-items-center title-custom">
+                            <div>
+                                <h2>{{ $cate->name }}</h2>
+                            </div>
+                        </div>
 
+                    </div>
                 </div>
             </div>
         </div>
@@ -28,8 +35,9 @@
                             <div class="row">
                                 <!-- product-item start -->
                                 @foreach ($data as $product)
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 mb-8">
+                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 mb-8">
                                     @include('front.inc.product')
+                                    @include('front.inc.details_modal')
                                 </div>
                                 @endforeach
 

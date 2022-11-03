@@ -4,7 +4,7 @@
             <div class="row g-0">
                 <div class="col-lg-3 col-md-6 col-6">
                     <div class="logo">
-                        <a href="{{ route('index') }}"><img
+                        <a href="{{ route('index') }}"><img class="img-fluid"
                               src="{{ asset('/') }}assets/images/logo/{{ $content->logo }}" alt="" /></a>
                     </div>
                 </div>
@@ -77,16 +77,5 @@
         </div>
     </div>
 </header>
-<!-- Newsletter Popup Start -->
-<div class="popup_wrapper hidden-sm hidden-xs">
 
-    <div class="test">
-        <span class="popup_off">Close</span>
-        <a href="{{ $content->slider_text }}">
-            <img src="{{ asset('/') }}assets/images/{{ $content->slider }}" width="100%" height="100%" alt="">
-        </a>
-    </div>
-
-</div>
-<!-- Newsletter Popup End -->
 <div class="header-space"></div>

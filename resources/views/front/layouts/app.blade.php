@@ -11,7 +11,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/') }}assets/images/logo/{{ $content->logo }}">
-
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
         <!-- all css here -->
         <link rel="stylesheet" href="{{ asset('/') }}assets/front/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{ asset('/') }}assets/front/css/magnific-popup.css">
@@ -64,7 +66,9 @@
             var myElement = document.querySelector(".intelligent-header");
             var headroom  = new Headroom(myElement);
             headroom.init();
+
             $('.owl-details').owlCarousel({
+
     margin:10,
     responsive:{
         0:{
@@ -77,6 +81,23 @@
             items:3
         }
     }
+})
+
+
+$('.owl-category').owlCarousel({
+items:6,
+margin:10,
+responsive:{
+    0:{
+        items:2.5
+    },
+    600:{
+        items:3.5
+    },
+    1000:{
+        items:5.5
+    }
+}
 })
         </script>
 
@@ -101,7 +122,7 @@
                 </div>
                 <div class="cart-title">
                     <h3><a href="#"> ${item.name}</a></h3>
-                    <span>${item.quantity} x BDT ${item.price}</span>
+                    <span>${item.quantity} x  ${item.price} <span class="ml-2">{{ $content->currency }}</span></span>
                 </div>
                 <div class="cart-delete">
                     <a class="dltProduct" onClick="cartLS.remove(${item.id})"><i class="ion-ios-trash-outline"></i></a>

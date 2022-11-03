@@ -21,18 +21,7 @@
                         <span data-key="t-color">Slider</span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('viewcolor') }}">
-                        <i data-feather="home"></i>
-                        <span data-key="t-color">Color</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('viewsize') }}">
-                        <i data-feather="home"></i>
-                        <span data-key="t-size">Size</span>
-                    </a>
-                </li>
+
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i data-feather="grid"></i>
@@ -78,12 +67,24 @@
 
                     <li>
                         <a href="{{ route('addproduct') }}">
+
                             <span data-key="t-chat">Add Products</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('product.index') }}">
                             <span data-key="t-chat">View Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('viewsize') }}">
+                            <span data-key="t-size">Size</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('viewcolor') }}">
+                            <span data-key="t-color">Color</span>
                         </a>
                     </li>
                 </ul>

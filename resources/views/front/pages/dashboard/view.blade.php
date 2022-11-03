@@ -102,12 +102,13 @@ dd($products);
                                     </small>
                                 </div>
                             </td>
-                            <td class="text-center">BDT
-                                {{ $item->product_price }}.00
+                            <td class="text-center">
+                                {{ $item->product_price }}.00 <span class="ml-2">{{ $content->currency }}</span>
                             </td>
                             <td class="text-center">{{ $item->product_quantity }}</td>
-                            <td class="text-right">BDT
-                                {{ $item->product_price * $item->product_quantity }}.00
+                            <td class="text-right">
+                                {{ $item->product_price * $item->product_quantity }}.00 <span
+                                  class="ml-2">{{ $content->currency }}</span>
                             </td>
                         </tr>
 
@@ -115,8 +116,8 @@ dd($products);
 
                         <tr>
                             <td colspan="3" class="text-end f-w-600">Total</td>
-                            <td class="text-right f-w-600">BDT
-                                {{ $order->subtotal }}.00
+                            <td class="text-right f-w-600">
+                                {{ $order->subtotal }}.00 <span class="ml-2">{{ $content->currency }}</span>
                             </td>
                         </tr>
                     </tbody>

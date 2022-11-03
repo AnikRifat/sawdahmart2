@@ -42,7 +42,7 @@
 </style>
 @section('content')
 <div class="breadcrumb-area pt-205 pb-210"
-  style="background-image: url({{ url('/') }}assets/front/img/bg/breadcrumb.jpg)">
+  style="background-image: url({{ asset('/') }}assets/images/{{ $content->tvc2 }}">
     <div class="container">
         <div class="breadcrumb-content">
             <h2>cart page</h2>
@@ -97,7 +97,8 @@
                             <div class="cart-page-total">
                                 <h2>Cart totals</h2>
                                 <ul>
-                                    <li>total <span class="total"></span> BDT</li>
+                                    <li>total <span class="total"></span> <span
+                                          class="ml-2">{{ $content->currency }}</span></li>
                                     {{-- <li>Total<span>100.00</span></li> --}}
                                 </ul>
                                 <a href="{{ route('checkout') }}">Proceed to checkout</a>
@@ -121,13 +122,13 @@ $cartcheck.innerHTML = items.map((item) => `
                                         <a href="#"><img src="{{ asset('/') }}assets/images/product/${item.image}" alt="${item.name}"></a>
                                     </td>
                                     <td class="product-name"><a href="#">${item.name} </a></td>
-                                    <td class="product-price"><span class="amount">BDT ${item.price}</span></td>
+                                    <td class="product-price"><span class="amount"> ${item.price}<span class="ml-2">{{ $content->currency }}</span></span></td>
                                     <td class="qty mt-5">
                         <span onClick="cartLS.quantity(${item.id},-1)" class="minus bg-dark">-</span>
                         <input type="number" class="count" name="qty" value="${item.quantity}">
                         <span onClick="cartLS.quantity(${item.id},1)" class="plus bg-dark">+</span>
                     </td>
-                                    <td class="product-subtotal">BDT ${item.price * item.quantity}</td>
+                                    <td class="product-subtotal"> ${item.price * item.quantity} <span class="ml-2">{{ $content->currency }}</span><span class="ml-2">{{ $content->currency }}</span></td>
 
                                 </tr>
 

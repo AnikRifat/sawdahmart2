@@ -57,7 +57,7 @@ $productID = '#product'. rand(100,1000)
                                 <label class="form-label" for="image">Product Image 1</label>
                                 <br>
                                 <img src="{{ asset('/') }}assets/admin/images/thumb.png" alt=""
-                                  class="img-thumbnail mb-2" id="thm1" height="200" width="200">
+                                  class="img-thumbnail mb-2" id="thm1" style=" height: 200px; width: 200px;">
                                 <input class="form-control" type="file" id="image" name="image"
                                   onchange="readURL(this);">
                             </div>
@@ -66,7 +66,7 @@ $productID = '#product'. rand(100,1000)
                                 <label class="form-label" for="image_2">Product Image 2</label>
                                 <br>
                                 <img src="{{ asset('/') }}assets/admin/images/thumb.png" alt=""
-                                  class="img-thumbnail mb-2" id="thm2" height="200" width="200">
+                                  class="img-thumbnail mb-2" id="thm2" style=" height: 200px; width: 200px;">
                                 <input class="form-control" type="file" id="image_2" name="image_2"
                                   onchange="readURL2(this);">
                             </div>
@@ -75,7 +75,7 @@ $productID = '#product'. rand(100,1000)
                                 <label class="form-label" for="image_3">Product Image 3</label>
                                 <br>
                                 <img src="{{ asset('/') }}assets/admin/images/thumb.png" alt=""
-                                  class="img-thumbnail mb-2" id="thm3" height="200" width="200">
+                                  class="img-thumbnail mb-2" id="thm3" style=" height: 200px; width: 200px;">
                                 <input class="form-control" type="file" id="image_3" name="image_3"
                                   onchange="readURL3(this);">
                             </div>
@@ -84,7 +84,7 @@ $productID = '#product'. rand(100,1000)
                                 <label class="form-label" for="image_4">Product Image 3</label>
                                 <br>
                                 <img src="{{ asset('/') }}assets/admin/images/thumb.png" alt=""
-                                  class="img-thumbnail mb-2" id="thm4" height="200" width="200">
+                                  class="img-thumbnail mb-2" id="thm4" style=" height: 200px; width: 200px;">
                                 <input class="form-control" type="file" id="image_4" name="image_4"
                                   onchange="readURL4(this);">
                             </div>
@@ -93,7 +93,7 @@ $productID = '#product'. rand(100,1000)
                                 <label class="form-label" for="image_5">Product Image 3</label>
                                 <br>
                                 <img src="{{ asset('/') }}assets/admin/images/thumb.png" alt=""
-                                  class="img-thumbnail mb-2" id="thm5" height="200" width="200">
+                                  class="img-thumbnail mb-2" id="thm5" style=" height: 200px; width: 200px;">
                                 <input class="form-control" type="file" id="image_5" name="image_5"
                                   onchange="readURL5(this);">
                             </div>

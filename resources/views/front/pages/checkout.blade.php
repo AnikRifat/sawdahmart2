@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 @section('content')
-<div class="breadcrumb-area pt-205 pb-210" style="background-image: url(assets/img/bg/breadcrumb.jpg)">
+<div class="breadcrumb-area pt-205 pb-210" ">
     <div class="container">
         <div class="breadcrumb-content">
             <h2>checkout</h2>
@@ -37,7 +37,8 @@
                                 <tfoot>
                                     <tr class="order-total">
                                         <th>Order Total</th>
-                                        <td><strong>BDT <span class="subtotals"></span></strong>
+                                        <td><strong> <span class="subtotals"></span><span
+                                                  class="ml-2">{{ $content->currency }}</span></strong>
                                         </td>
                                     </tr>
                                 </tfoot>
@@ -73,7 +74,7 @@
 <input type="text" name="item_size[]" value="${item.size}" hidden>
 
                                     <td class="product-total">
-                                        <span class="amount">BDT ${item.price * item.quantity}</span>
+                                        <span class="amount"> ${item.price * item.quantity} <span class="ml-2">{{ $content->currency }}</span></span>
                                     </td>
                                 </tr>`)
 

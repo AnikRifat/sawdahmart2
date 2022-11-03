@@ -104,8 +104,10 @@ $products = $item->product_id($item->track_id);
                                                                                 </small>
                                                                             </div>
                                                                         </td>
-                                                                        <td class="text-center">BDT
+                                                                        <td class="text-center">
                                                                             {{ $product->product_price }}.00
+                                                                            <span
+                                                                              class="ml-2">{{ $content->currency }}</span>
                                                                         </td>
                                                                         <td class="text-center">
                                                                             {{ $product->product_quantity }}
@@ -116,7 +118,7 @@ $products = $item->product_id($item->track_id);
                                                                         <td class="text-center">
                                                                             {{ $product->product_color }}
                                                                         </td>
-                                                                        <td class="text-right">BDT
+                                                                        <td class="text-right">
                                                                             {{ $product->product_price * $product->product_quantity }}.00
                                                                         </td>
                                                                     </tr>
@@ -126,8 +128,11 @@ $products = $item->product_id($item->track_id);
                                                                     <tr>
                                                                         <td colspan="3" class="text-end f-w-600">Total
                                                                         </td>
-                                                                        <td class="text-right f-w-600">BDT
-                                                                            {{ $item->subtotal }}.00
+                                                                        <td class="text-right f-w-600">
+                                                                            {{ $item->subtotal }}.00<span
+                                                                              class="ml-2">{{ $content->currency }}</span>
+                                                                            <span
+                                                                              class="ml-2">{{ $content->currency }}</span>
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>

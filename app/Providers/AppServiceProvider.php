@@ -48,5 +48,6 @@ class AppServiceProvider extends ServiceProvider
 
         $sliders = Slider::all();
         View::share('sliders', $sliders);
+
     }
 }

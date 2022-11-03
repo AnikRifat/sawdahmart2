@@ -66,6 +66,11 @@
                                       placeholder="Website name" value="{{ $content->name }}">
                                 </div>
                                 <div class="mb-4">
+                                    <label class="form-label" for="currency">Website Cureency</label>
+                                    <input class="form-control" type="text" id="currency" name="currency"
+                                      placeholder="Website currency" value="{{ $content->currency }}">
+                                </div>
+                                <div class="mb-4">
                                     <label class="form-label" for="logo">Website logo <small>(400 x 330 px ||
                                             PNG)</small></label>
                                     <img src="{{ asset('/') }}assets/images/logo/{{ $content->logo }}" alt=""

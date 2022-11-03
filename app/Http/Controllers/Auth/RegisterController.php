@@ -49,15 +49,33 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        $info = [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone' => 'required',
-            'address' => 'required',
-            'country' => 'required',
-            'city' => 'required',
-        ]);
+            'password' => ['required', 'string', 'min:8'],
+            'phone' => ['required', 'max:15', 'unique:users'],
+            'address' => ['required'],
+            'country' => ['required'],
+            'city' => ['required'],
+        ];
+        $ddx = Validator::make($data, $info);
+        if (!$ddx) {
+            dd('notok');
+        } else {
+            return $ddx;
+        }
+        // dd($ddx);
+        // if ($ddx) {
+        //     // dd($info);
+        //     return dd('no validate');
+        // } else {
+        //     dd($info);
+        // }
+
+        // if (!$data['email']) {
+        //     return redirect()->route('register')->with('error', 'account already exist');
+        // }
+        return Validator::make($data, $info);
     }
 
     /**
@@ -68,7 +86,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        dd($data);
+        $user = [
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -76,6 +95,11 @@ class RegisterController extends Controller
             'address' => $data['address'],
             'country' => $data['country'],
             'city' => $data['city'],
-        ]);
+        ];
+        if (User::create($user)) {
+            return redirect()->route('user')->with('success', 'djusahfd');
+        } else {
+            return redirect()->route('register')->with('error', 'Please fillup every field');
+        };
     }
 }

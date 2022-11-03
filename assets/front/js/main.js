@@ -99,8 +99,9 @@
     $('.slider-active').owlCarousel({
         loop: true,
         nav: false,
-        autoplay: false,
-        autoplayTimeout: 5000,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause:true,
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
         item: 1,

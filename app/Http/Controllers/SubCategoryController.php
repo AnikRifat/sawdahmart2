@@ -40,10 +40,17 @@ class SubCategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'image' => 'required',
             'category_id' => 'required',
         ]);
 
         $input = $request->all();
+        if ($image = $request->file('image')) {
+            $filePath = 'assets/images/sub_category/';
+            $setImage = date('YmdHis') . "_sub_category" . "." . $image->getClientOriginalExtension();
+            $image->move($filePath, $setImage);
+            $input['image'] = $setImage;
+        }
         // dd($input);
         SubCategory::create($input);
 
@@ -93,6 +100,14 @@ class SubCategoryController extends Controller
 
         $input = $request->all();
         // dd($input);
+        if ($image = $request->file('image')) {
+            $filePath = 'assets/images/sub_category/';
+            $setImage = date('YmdHis') . "_sub_category" . "." . $image->getClientOriginalExtension();
+            $image->move($filePath, $setImage);
+            $input['image'] = $setImage;
+        } else {
+            $input['image'] = ' ';
+        }
         $subcategory->update($input);
 
         return redirect()->route('viewsubcategory')->with('success', 'Sub Category Updated successfully.');
@@ -106,19 +121,18 @@ class SubCategoryController extends Controller
      */
     public function destroy(SubCategory $subcategory)
     {
-        if ($subcategory->product()->count() > 0){
+        if ($subcategory->product()->count() > 0) {
             if ($subcategory->product()->delete() && $subcategory->delete()) {
                 return redirect()->route('viewsubcategory')->with('success', 'Subcategory Deleted Scueesfully.');
             } else {
                 return redirect()->route('viewsubcategory')->with('success', 'not ahppend.');
             }
-        }else{
+        } else {
             if ($subcategory->delete()) {
                 return redirect()->route('viewsubcategory')->with('success', 'Subcategory Deleted Scueesfully.');
             } else {
                 return redirect()->route('viewsubcategory')->with('success', 'not ahppend.');
             }
         }
-
     }
 }

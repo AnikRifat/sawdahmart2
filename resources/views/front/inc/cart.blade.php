@@ -8,7 +8,8 @@
             <div class="cart-content">
                 <h3>Shopping Cart</h3>
                 <h6 class="font-weight-bold"><span class="itemstotal text-success"></span> Items</h6>
-                <h6 class="font-weight-bold"><span class="totali text-success"></span> BDT</h6>
+                <h6 class="font-weight-bold"><span class="totali text-success"></span> <span
+                      class="ml-2">{{ $content->currency }}</span></h6>
                 <ul>
                     <div class="cart"></div>
 
