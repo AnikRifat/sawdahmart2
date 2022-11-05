@@ -44,7 +44,7 @@
 
 /*----------- 2. Home furniture --------*/
 * {
-    font-family: 'Abel', sans-serif !important;
+    font-family: 'Inconsolata', monospace !important;
 }
 
 /* header area */
@@ -599,7 +599,7 @@
 
 .slider-content-style-1>h3 {
     color: #000000;
-    font-family: 'Abel', sans-serif;
+    font-family: 'Inconsolata', monospace;
     font-size: 32px;
 }
 
@@ -819,7 +819,7 @@
 .product-img img {
     width: 100%;
     height: 300px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .single-product,
@@ -2081,7 +2081,7 @@ input.cart-plus-minus-box {
 
 .slider-content-style-3 h3 {
     color: #373737;
-    font-family: 'Abel', sans-serif;
+    font-family: 'Inconsolata', monospace;
     font-size: 24px;
     letter-spacing: 1px;
 }
@@ -2475,14 +2475,14 @@ input.cart-plus-minus-box {
 
 .slider-content-style-toy h2 {
     color: #353535;
-    font-family: 'Abel', sans-serif;
+    font-family: 'Inconsolata', monospace;
     font-size: 72px;
 }
 
 .slider-content-style-toy h3 {
     color: #353535;
     font-size: 20px;
-    font-family: 'Abel', sans-serif;
+    font-family: 'Inconsolata', monospace;
     margin: 15px 0 27px;
 }
 
@@ -2550,7 +2550,7 @@ input.cart-plus-minus-box {
 
 .banner-content-5>h3 {
     color: #494949;
-    font-family: 'Abel', sans-serif;
+    font-family: 'Inconsolata', monospace;
     font-size: 24px;
     margin: 0;
 }
@@ -2641,7 +2641,7 @@ input.cart-plus-minus-box {
 /* home food slider */
 .slider-content-style-6 h2 {
     color: #434242;
-    font-family: 'Abel', sans-serif;
+    font-family: 'Inconsolata', monospace;
     font-size: 48px;
     font-weight: 700;
     margin: 0;
@@ -2649,7 +2649,7 @@ input.cart-plus-minus-box {
 
 .slider-content-style-6 h3 {
     color: #434242;
-    font-family: 'Abel', sans-serif;
+    font-family: 'Inconsolata', monospace;
     font-size: 24px;
     font-weight: 700;
     margin: 17px 0 4px;
@@ -2662,7 +2662,7 @@ input.cart-plus-minus-box {
 
 .banner-content-6>h3 {
     color: #ffffff;
-    font-family: 'Abel', sans-serif;
+    font-family: 'Inconsolata', monospace;
     font-size: 24px;
     font-weight: 400;
     line-height: 1;
@@ -2687,7 +2687,7 @@ input.cart-plus-minus-box {
 
 .banner-content-6>h2 {
     color: #ffffff;
-    font-family: 'Abel', sans-serif;
+    font-family: 'Inconsolata', monospace;
     font-size: 48px;
     margin: 1px 0 18px;
 }
@@ -2802,7 +2802,7 @@ input.cart-plus-minus-box {
 
 .product-tab-list.food-menu a h4 {
     color: #000000;
-    font-family: 'Abel', sans-serif;
+    font-family: 'Inconsolata', monospace;
     font-size: 18px;
     font-weight: bold;
     text-transform: capitalize;
@@ -3945,7 +3945,7 @@ input.cart-plus-minus-box {
 .product-color-style2>ul li.orange:before {
     color: #fff;
     content: "ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â½";
-    font-family: 'Abel', sans-serif;
+    font-family: 'Inconsolata', monospace;
     font-size: 16px;
     left: 0;
     position: absolute;
@@ -4058,7 +4058,7 @@ input.cart-plus-minus-box {
 .bundle-price ul li:before {
     color: #727272;
     content: "ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â´";
-    font-family: 'Abel', sans-serif;
+    font-family: 'Inconsolata', monospace;
     font-size: 14px;
     left: 0;
     position: absolute;
@@ -4608,7 +4608,7 @@ thead {
 .coupon-accordion h3:before {
     color: #333;
     content: "ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â";
-    font-family: 'Abel', sans-serif;
+    font-family: 'Inconsolata', monospace;
     display: inline-block;
     left: 1.5em;
     position: absolute;
@@ -4749,7 +4749,7 @@ p.checkout-coupon input[type="submit"] {
 
 .country-select:before {
     content: "ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â";
-    font-family: 'Abel', sans-serif;
+    font-family: 'Inconsolata', monospace;
     display: inline-block;
     font-size: 20px;
     position: absolute;
@@ -5687,4 +5687,13 @@ button.close.position-absolute {}
 .title-custom h2 {
     font-weight: 700;
     color: #f15822;
+}
+
+a.btn.btn-danger.rounded.p-1 {
+    background-color: #f15822;
+}
+
+.btn-custom {
+    background: #f15822;
+    color: #fff;
 }

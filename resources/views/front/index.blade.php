@@ -1,14 +1,14 @@
 @extends('front.layouts.app')
-<div class="popup_wrapper hidden-sm hidden-xs">
+{{-- <div class="popup_wrapper hidden-sm hidden-xs">
 
     <div class="test">
         <span class="popup_off">Close</span>
         <a href="{{ $content->slider_text }}">
-            <img src="{{ asset('/') }}assets/images/{{ $content->slider }}" width="100%" height="100%" alt="">
-        </a>
-    </div>
-
+<img src="{{ asset('/') }}assets/images/{{ $content->slider }}" class="img-fluid" alt="">
+</a>
 </div>
+
+</div> --}}
 @section('content')
 @foreach ($products as $product)
 @include('front.inc.details_modal')
@@ -17,12 +17,12 @@
 
 <!-- Newsletter Popup End -->
 
-<div class="slider-area">
+<div class="slider-area pt-5">
     <div class="slider-active owl-carousel">
 
         @foreach ($sliders as $item)
-        <div class="single-slider single-slider-hm1 bg-img ptb-260"
-          style="background-image: url({{ asset('/') }}assets/images/slider/{{ $item->image }});background-repeat: no-repeat;">
+        <div class="single-slider single-slider-hm1 bg-img ptb-260" class="img-fluid"
+          style="background-image: url({{ asset('/') }}assets/images/slider/{{ $item->image }});background-repeat: no-repeat;background-size:contain;">
         </div>
 
         @endforeach
@@ -49,7 +49,7 @@
                     <h2>Our Categories</h2>
                 </div>
                 <div><a href="{{ url('/categories') }}" class="btn btn-danger rounded p-1">
-                        <h5 class="text-light "> <i> view all </i><span><i class="ion-arrow-right-c ml-2 "></i></span>
+                        <h5 class="text-light "> <b> view all </b><span><i class="ion-arrow-right-c ml-2 "></i></span>
                         </h5>
                     </a></div>
             </div>
@@ -60,14 +60,14 @@
             <div class="item ">
                 <a href="{{ route('category',$item->id) }}">
                     <div class="card text-center category " style="
-                    height: 12rem;
+                    height: 8rem;
                 ">
                         <div class="card-body">
                             <img class="img-fluid mx-auto" style="
-                            height: 100px;
+                            height: 50px;
                             width: fit-content;
                         " src="{{ asset('/') }}assets/images/category/{{ $item->image }}" alt="">
-                            <h6 class="mt-2">{{ $item->name }}</h6>
+                            <h6 class="mt-2 text-ellipsis-2">{{ $item->name }}</h6>
                         </div>
 
                     </div>
@@ -80,6 +80,41 @@
     </div>
 </div>
 
+
+<div class="product-collection-area pb-50">
+    <div class="electronic-product">
+        <div class="section-title mb-55">
+            <div class="d-flex justify-content-between align-items-center title-custom">
+                <div>
+                    <h2>Our Leatest Products</h2>
+                </div>
+                <div><a href="{{ route('products') }}" class="btn btn-danger rounded p-1">
+                        <h5 class="text-light "> <b> view all </b><span><i class="ion-arrow-right-c ml-2 "></i></span>
+                        </h5>
+                    </a></div>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <!-- product-item start -->
+
+            @foreach ($homeProduct as $product)
+            <div class="col-md-4 col-lg-4 col-xl-3 col-sm-6 col-6">
+                @include('front.inc.product')
+
+            </div>
+
+            @endforeach
+
+            <div class="col-12 col-lg-12 text-center">
+                <a href="{{ route('products') }}" class="btn btn-info text-light btn-block w-50 ">
+                    <h5 class="text-light">View More</h5>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="banner-area pt-40 pb-70">
     <div class="banner-2-all container-fluid p-0">
         <div class="row">
@@ -107,39 +142,6 @@
         </div>
     </div>
 </div>
-<div class="product-collection-area pb-50">
-    <div class="electronic-product">
-        <div class="section-title mb-55">
-            <div class="d-flex justify-content-between align-items-center title-custom">
-                <div>
-                    <h2>Our Products</h2>
-                </div>
-                <div><a href="{{ route('products') }}" class="btn btn-danger rounded p-1">
-                        <h5 class="text-light "> <i> view all </i><span><i class="ion-arrow-right-c ml-2 "></i></span>
-                        </h5>
-                    </a></div>
-            </div>
-
-        </div>
-        <div class="row">
-
-            <!-- product-item start -->
-
-            @foreach ($homeProduct as $product)
-            <div class="col-md-4 col-lg-4 col-xl-3 col-sm-6 col-6">
-                @include('front.inc.product')
-
-            </div>
-
-            @endforeach
-
-            {{-- <div class="col-md-6 col-lg-4 col-xl-3 col-sm-6 col-12">
-
-                </div> --}}
-        </div>
-    </div>
-</div>
-
 
 
 @if($reviews)

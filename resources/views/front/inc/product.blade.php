@@ -40,7 +40,7 @@
 
     }else if(cartLS.get({{ $product->id }}) === null  || cartLS.get({{ $product->id }}) == undefined){
         element.classList.add("cart-null");
-        element2.classList.add("carts-null","btn-success");
+        element2.classList.add("carts-null","btn-custom");
     }
     }
     cartLS.onChange(cartSet());

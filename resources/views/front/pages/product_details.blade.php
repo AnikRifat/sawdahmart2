@@ -7,6 +7,13 @@
 
 
 @endphp
+
+
+<style>
+    li {
+        list-style: disc;
+    }
+</style>
 <div class="main-body">
     <div class="product-details ptb-100 pb-90">
         <div class="container">

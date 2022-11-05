@@ -13,7 +13,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/') }}assets/images/logo/{{ $content->logo }}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
         <!-- all css here -->
         <link rel="stylesheet" href="{{ asset('/') }}assets/front/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{ asset('/') }}assets/front/css/magnific-popup.css">
@@ -28,6 +28,7 @@
         <link rel="stylesheet" href="{{ asset('/') }}assets/front/css/responsive.css">
         <script src="{{ asset('/') }}assets/front/js/cart.js"></script>
         <script src="{{ asset('/') }}assets/front/js/vendor/modernizr-3.11.7.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     </head>
 
     <body>
@@ -61,6 +62,7 @@
         <script src="{{ asset('/') }}assets/front/js/slinky.min.js"></script>
         <script src="{{ asset('/') }}assets/front/js/ajax-mail.js"></script>
         <script src="{{ asset('/') }}assets/front/js/owl.carousel.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
         <script src="{{ asset('/') }}assets/front/js/plugins.js"></script>
         <script type="text/javascript">
             var myElement = document.querySelector(".intelligent-header");
@@ -100,7 +102,14 @@ responsive:{
 }
 })
         </script>
-
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+      pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+      },
+    });
+        </script>
         <script src="{{ asset('/') }}assets/front/js/main.js"></script>
         @stack('script')
         <script>

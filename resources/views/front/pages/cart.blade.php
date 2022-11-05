@@ -97,9 +97,7 @@
                             <div class="cart-page-total">
                                 <h2>Cart totals</h2>
                                 <ul>
-                                    <li>total <span class="total"></span> <span
-                                          class="ml-2">{{ $content->currency }}</span></li>
-                                    {{-- <li>Total<span>100.00</span></li> --}}
+                                    <li>Total <span class="total"></span></li>
                                 </ul>
                                 <a href="{{ route('checkout') }}">Proceed to checkout</a>
                             </div>
@@ -128,14 +126,15 @@ $cartcheck.innerHTML = items.map((item) => `
                         <input type="number" class="count" name="qty" value="${item.quantity}">
                         <span onClick="cartLS.quantity(${item.id},1)" class="plus bg-dark">+</span>
                     </td>
-                                    <td class="product-subtotal"> ${item.price * item.quantity} <span class="ml-2">{{ $content->currency }}</span><span class="ml-2">{{ $content->currency }}</span></td>
+                                    <td class="product-subtotal"> ${item.price * item.quantity} <span class="ml-2">{{ $content->currency }}</span><span class="ml-2"></span></td>
 
                                 </tr>
 
 
 `)
 
-document.querySelector(".total").innerHTML = "$" + cartLS.total()
+document.querySelector(".total").innerHTML =  cartLS.total() + "{{ $content->currency }}"
+
 //  console.log(cartLS.total());
 }
 renderCheckout(cartLS.list())

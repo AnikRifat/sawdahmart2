@@ -65,7 +65,9 @@
                         @else
                         <div class="header-cart common-style">
                             <button class="sidebar-trigger">
-                                <span class="ion-bag"></span>
+                                <img src="{{ asset('/assets/front/img/bag.gif') }}" style="
+                                height: 2rem;
+                            " alt="">
                             </button>
                         </div>
                         @endif

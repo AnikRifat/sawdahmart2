@@ -1,9 +1,9 @@
 (function($) {
     "use strict";
-    
-    
-    
-    
+
+
+
+
     /*--------------------------
     2. Newsletter Popup
     ---------------------------*/
@@ -16,85 +16,85 @@
             $(".popup_wrapper").fadeOut(500);
         })
     }, 1000);
-    
-    
+
+
     /* jQuery MeanMenu */
     $('#mobile-menu-active').meanmenu({
         meanScreenWidth: "991",
         meanMenuContainer: ".mobile-menu-area .mobile-menu",
     });
-    
-    
+
+
     /*====== sidebarCart ======*/
     function sidebarCart() {
         var menuTrigger = $('button.sidebar-trigger'),
             endTrigger = $('button.op-sidebar-close'),
             container = $('.sidebar-cart'),
             wrapper = $('.wrapper');
-        
+
         wrapper.prepend('<div class="body-overlay"></div>');
         menuTrigger.on('click', function() {
             container.addClass('inside');
             wrapper.addClass('overlay-active');
         });
-        
+
         endTrigger.on('click', function() {
             container.removeClass('inside');
             wrapper.removeClass('overlay-active');
         });
-        
+
         $('.body-overlay').on('click', function() {
             container.removeClass('inside');
             wrapper.removeClass('overlay-active');
         });
     };
     sidebarCart();
-    
-    
+
+
     /*====== sidebarSearch ======*/
     function sidebarSearch() {
         var searchTrigger = $('button.sidebar-trigger-search'),
             endTriggersearch = $('button.search-close'),
             container = $('.main-search-active');
-        
+
         searchTrigger.on('click', function() {
             container.addClass('inside');
         });
-        
+
         endTriggersearch.on('click', function() {
             container.removeClass('inside');
         });
-        
+
     };
     sidebarSearch();
-    
-    
+
+
     /*====== sidebarCart ======*/
     function sidebarNav() {
         var navbarTrigger = $('button.header-navbar-active'),
             endTrigger = $('button.op-sidebar-close'),
             container = $('.cur-lang-acc-active'),
             wrapper = $('.wrapper');
-        
+
         wrapper.prepend('<div class="body-overlay"></div>');
-        
+
         navbarTrigger.on('click', function() {
             container.addClass('inside');
             wrapper.addClass('overlay-active');
         });
-        
+
         endTrigger.on('click', function() {
             container.removeClass('inside');
             wrapper.removeClass('overlay-active');
         });
-        
+
         $('.body-overlay').on('click', function() {
             container.removeClass('inside');
             wrapper.removeClass('overlay-active');
         });
     };
     sidebarNav();
-    
+
     /* slider active */
     $('.slider-active').owlCarousel({
         loop: true,
@@ -117,8 +117,8 @@
             }
         }
     })
-    
-    
+
+
     /* testimonial active */
     $('.testimonial-active').owlCarousel({
         loop: true,
@@ -138,7 +138,7 @@
             }
         }
     })
-    
+
     /* brand logo active */
     $('.brand-logo-active').owlCarousel({
         loop: true,
@@ -165,7 +165,7 @@
             }
         }
     })
-    
+
     /* product slider active */
     $('.product-slider-active').owlCarousel({
         loop: true,
@@ -190,7 +190,7 @@
             }
         }
     })
-    
+
     /* new collection slider active */
     $('.new-collection-slider').owlCarousel({
         loop: true,
@@ -215,8 +215,8 @@
             }
         }
     })
-    
-    
+
+
     /*----------------------------
     	Cart Plus Minus Button
     ------------------------------ */
@@ -237,8 +237,8 @@
         }
         $button.parent().find("input").val(newVal);
     });
-    
-    
+
+
     /*--
     Smooth Scroll
     -----------------------------------*/
@@ -250,8 +250,8 @@
             scrollTarget: link.hash
         });
     });
-    
-    
+
+
     /*---------------------
         countdown
       --------------------- */
@@ -262,14 +262,14 @@
             $this.html(event.strftime('<span class="cdown day">%-D <p>Days</p></span> <span class="cdown hour">%-H <p>Hour</p></span> <span class="cdown minutes">%M <p>Min</p></span class="cdown second"> <span>%S <p>Sec</p></span>'));
         });
     });
-    
-    
+
+
     /* magnificPopup video popup */
     $('.video-popup').magnificPopup({
         type: 'iframe'
     });
-    
-    
+
+
     /*---------------------
     price slider
     --------------------- */
@@ -288,11 +288,11 @@
         amountprice.val("$" + sliderrange.slider("values", 0) +
             " - $" + sliderrange.slider("values", 1));
     });
-    
-    
+
+
     // Instantiate EasyZoom instances
     var $easyzoom = $('.easyzoom').easyZoom();
-    
+
     /*---------------------
     sidebar sticky
     --------------------- */
@@ -301,21 +301,21 @@
         bottomSpacing: 30,
         minWidth: 991,
     });
-    
+
     $('.sidebar-active1').stickySidebar({
         topSpacing: 80,
         bottomSpacing: 30,
         minWidth: 991,
     });
-    
+
     $('.sidebar-active3').stickySidebar({
         topSpacing: 80,
         bottomSpacing: 30,
         minWidth: 991,
     });
-    
-    
-    
+
+
+
     /*---------------------
         filter active
     --------------------- */
@@ -330,53 +330,53 @@
         })
     }
     singleProductFilter();
-    
-    
+
+
     /*--- showlogin toggle function ----*/
     $('#showlogin').on('click', function() {
         $('#checkout-login').slideToggle(900);
     });
-    
-    
+
+
     /*--- showlogin toggle function ----*/
     $('#showcoupon').on('click', function() {
         $('#checkout_coupon').slideToggle(900);
     });
-    
-    
+
+
     /*--- showlogin toggle function ----*/
     $('#cbox').on('click', function() {
         $('#cbox_info').slideToggle(1000);
     });
-    
+
     /*--- showlogin toggle function ----*/
     $('#ship-box').on('click', function() {
         $('#ship-box-info').slideToggle(1000);
     });
-    
-    
+
+
     /*--- clickable menu active ----*/
     const slinky = $('#menu').slinky()
-    
-    
+
+
     /*====== sidebarCart ======*/
     function sidebarMainmenu() {
         var menuTrigger = $('.clickable-mainmenu-active'),
             endTrigger = $('button.clickable-mainmenu-close'),
             container = $('.clickable-mainmenu');
-        
+
         menuTrigger.on('click', function(e) {
             e.preventDefault();
             container.addClass('inside');
         });
-        
+
         endTrigger.on('click', function() {
             container.removeClass('inside');
         });
     };
     sidebarMainmenu();
-    
-    
+
+
     /*--------------------------
      ScrollUp
     ---------------------------- */
@@ -386,8 +386,8 @@
         scrollSpeed: 900,
         animation: 'fade'
     });
-    
-    
+
+
     /*--
     instafeed
     -----------------------------------*/
@@ -403,12 +403,12 @@
             });
         userFeed.run();
     }
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
 
 
 
