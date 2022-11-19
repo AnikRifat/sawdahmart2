@@ -5697,3 +5697,10 @@ a.btn.btn-danger.rounded.p-1 {
     background: #f15822;
     color: #fff;
 }
+
+a.btn.btn-block.w-50.btn-more {
+    font-size: 1.5rem;
+    background: #f15822;
+    color: #fff;
+    /* padding: 0px; */
+}
